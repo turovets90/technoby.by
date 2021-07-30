@@ -1,0 +1,93 @@
+.m_slider
+    -for(var ms=1;ms<=3;ms++)
+        .m_slider_item(style="background-image: url(img/m_slider-min.png)")
+            .center
+                .m_slider_item_content
+                    .title TRIMIL D #{ms}
+                    .desc
+                        p Изготовление металлоконструкций, лофт-мебели
+                        p полимерно-порошковое покрытие металла
+                        p декорирование металлических изделий под дерево
+                    a.btn_default.white(href="#") Подробнее
+
+-var serv=['','Изготовление Металлических изделий','Полимерная порошковая покраска','Декорирование металла под дерево'];
+section.main_service
+    .container
+        .h2 Наши услуги
+        .sub_title Направления производства, которыми мы занимаемся:
+
+        .row.main_serv_list
+            -for(var s=1;s<=3;s++)
+                .col-12.col-md-6.col-xl-4
+                    .main_serv_item
+                        .main_serv_item_container
+                            picture
+                                img(src="img/serv_"+s+".svg")
+                            .title=serv[s]
+                            .excerpt Краткое описание. Краткое описание. Описание. Краткое описание.
+                            a.btn_default.black(href="#") Подробнее
+
+
+
+
+section.main_projects
+    .container
+        .h2 Наши проекты
+
+        .row.main_projects_list
+            -for(var p=1;p<=6;p++)
+                .col-12.col-md-6.col-xl-4
+                    .main_project_item(style="background-image:url(img/project.png)")
+                        .main_project_item_content
+                            div
+                                .title Название проекта
+                                .excerpt Дополнительное описание.
+
+
+section.main_about(style="background-image:url(img/image59.png)")
+    .container.position-relative
+        .row
+            .col-12.col-md-6
+                .main_about_desc
+                    .h2 О НАС
+                    .desc Интерьеру – внутреннему дизайну помещения – посвящено огромное множество сайтов, учебных пособий по декорированию, печатных изданий и телепрограмм. Однако немаловажным в оформлении семейного гнёздышка или рабочей зоны является экстерьер. Компания «Тримил Д» предлагает своим клиентам огромный выбор заборов, ворот, оборудования для торговли и прочих изделий из металла!
+                    a.btn_default.grey(href="#") Подробнее
+
+            .col-12.col-md-6.d-flex.align-items-center
+                .feedback_form
+                    .h2 Остались вопросы?
+                    .sub_title Заполните форму ниже и наши сотрудники свяжутся с Вами в ближайшее время!
+                    form
+                        .row
+                            .col-12.col-xl-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Ваше имя: <span class="red">*</span>
+                            .col-12.col-xl-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Ваш телефон: <span class="red">*</span>
+                            .col-12.col-xl-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Ваш E-mail:
+                            .col-12.col-xl-6
+                                .field
+                                    button.btn_default.black(type="submit") Отправить
+
+
+
+section.main_clients
+    .container
+        .h2 Наши клиенты
+        .row.main_clients_list
+            -for(var c=1;c<=10;c++)
+                .col-6.col-sm-4.col-md-3.col-xl-2.item
+                    picture
+                        img(src="img/client.png")
+
+
+
+
+
+

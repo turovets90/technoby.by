@@ -1,0 +1,444 @@
+@import "fancybox"
+//@import "select2"
+@import "bootstrap"
+@import "slick-less"
+
+
+
+=b_a()
+  content: ''
+  position: absolute
+
+=m_a()
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  margin: auto
+
+=flex()
+  display: flex
+  display: -webkit-flex
+
+=j-center()
+  justify-content: center
+  -webkit-justify-content: center
+
+=j-beetween()
+  justify-content: space-between
+  -webkit-justify-content: space-between
+
+=j-space-around()
+  justify-content: space-around
+  -webkit-justify-content: space-around
+
+=j-end()
+  justify-content: flex-end
+  -webkit-justify-content: flex-end
+
+=j-start()
+  justify-content: flex-start
+  -webkit-justify-content: flex-start
+
+=ai-center()
+  align-items: center
+  -webkit-align-items: center
+
+=ai-start()
+  align-items: flex-start
+  -webkit-align-items: flex-start
+
+=ai-end()
+  align-items: flex-end
+  -webkit-align-items: flex-end
+
+=as-center()
+  align-self: center
+  -webkit-align-self: center
+
+=as-end()
+  align-self: flex-end
+  -webkit-align-self: flex-end
+
+=as-start()
+  align-self: flex-start
+  -webkit-align-self: flex-start
+
+=wrap()
+  flex-wrap: wrap
+  -webkit-flex-wrap: wrap
+
+=col()
+  flex-direction: column
+  -webkit-flex-direction: column
+
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
+
+=box-shadow($box-shadow)
+  -webkit-box-shadow: $box-shadow
+  -moz-box-shadow: $box-shadow
+  box-shadow: $box-shadow
+
+=transform($transform)
+  transform: $transform
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  -o-transform: $transform
+
+=transition($transition_default)
+  transition: $transition_default
+  -webkit-transition: $transition_default
+  -moz-transition: $transition_default
+  -o-transition: $transition_default
+$transition_default: .3s linear
+
+@font-face
+  font-family: 'Mariupol Symbols'
+  src: url('../fonts/MariupolSymbols.eot')
+  src: local('Mariupol Symbols'), local('MariupolSymbols'), url('../fonts/MariupolSymbols.eot?#iefix') format('embedded-opentype'), url('../fonts/MariupolSymbols.woff2') format('woff2'), url('../fonts/MariupolSymbols.woff') format('woff'), url('../fonts/MariupolSymbols.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+//$reg: 'Mariupol Symbols'
+
+@font-face
+  font-family: 'Mariupol Medium'
+  src: url('../fonts/Mariupol-Medium.eot')
+  src: local('Mariupol Medium'), local('Mariupol-Medium'), url('../fonts/Mariupol-Medium.eot?#iefix') format('embedded-opentype'), url('../fonts/Mariupol-Medium.woff2') format('woff2'), url('../fonts/Mariupol-Medium.woff') format('woff'), url('../fonts/Mariupol-Medium.ttf') format('truetype')
+  font-weight: 500
+  font-style: normal
+$medium: 'Mariupol Medium'
+
+@font-face
+  font-family: 'Mariupol Regular'
+  src: url('../fonts/Mariupol-Regular.eot')
+  src: local('Mariupol'), local('Mariupol-Regular'), url('../fonts/Mariupol-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Mariupol-Regular.woff2') format('woff2'), url('../fonts/Mariupol-Regular.woff') format('woff'), url('../fonts/Mariupol-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+$reg: 'Mariupol Regular'
+
+@font-face
+  font-family: 'Mariupol Bold'
+  src: url('../fonts/Mariupol-Bold.eot')
+  src: local('Mariupol Bold'), local('Mariupol-Bold'), url('../fonts/Mariupol-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/Mariupol-Bold.woff2') format('woff2'), url('../fonts/Mariupol-Bold.woff') format('woff'), url('../fonts/Mariupol-Bold.ttf') format('truetype')
+  font-weight: bold
+  font-style: normal
+$bold: 'Mariupol Bold'
+
+/*********************************/
+
+$black: #323232
+$gray: #717171
+$blue: #005BBD
+
+
+a, button
+  +transition($transition_default)
+
+a
+  text-decoration: none
+  color: $blue
+
+  &:hover, &:focus
+    text-decoration: underline
+button, input, .form-control
+  outline: none
+
+.form-control
+  &:hover, &:focus
+    box-shadow: none
+    outline: none
+
+
+button
+  cursor: pointer
+  &:hover, &:focus
+    +box-shadow(none)
+    outline: none
+
+img, video
+  max-width: 100%
+*
+  outline: none
+
+ul
+  padding: 0
+  margin: 0
+  li
+    list-style: none
+
+.container
+  max-width: 1410px
+  padding-left: 15px
+  padding-right: 15px
+  margin: auto
+
+
+body
+  color: $black
+  background: #fff
+  font-size: 16px
+  line-height: 25px
+  font-family: $reg
+
+
+
+
+.h_row
+  +flex
+  +ai-center
+  +wrap
+  padding: 17px 0
+  .col_left
+    width: 66%
+    +flex
+    +ai-center
+    +wrap
+    +j-beetween
+  .col_right
+    width: 34%
+
+
+
+  .search
+    width: 100%
+    max-width: 440px
+    .search_form
+      +flex
+      +ai-center
+      .form-control
+        width: calc(100% - 40px)
+        background: #F4F4F4
+        border: 0
+        +border-radius(0)
+        padding-left: 20px
+        height: 40px
+        font-size: 14px
+        font-family: $reg
+        color: $black
+        &::-webkit-input-placeholder
+          color:  #717171
+          font-size: 14px
+          font-family: $reg
+        &::-moz-placeholder
+          color:  #717171
+          font-size: 14px
+          font-family: $reg
+        &::-ms-input-placeholder
+          color:  #717171
+          font-size: 14px
+          font-family: $reg
+        &:-moz-placeholder
+          color:  #717171
+          font-size: 14px
+          font-family: $reg
+        &:-ms-input-placeholder
+          color:  #717171
+          font-size: 14px
+          font-family: $reg
+
+      .search_btn
+        width: 40px
+        height: 40px
+        background: $blue
+        border: 0
+        position: relative
+        +flex
+        +ai-center
+        +j-center
+
+
+
+
+
+.h_contacts
+  text-align: center
+  ul
+    line-height: 1.2
+    li
+      text-align: center
+      a
+        &.phone
+          color: $black
+          font-size: 16px
+          text-decoration: none
+          font-family: $medium
+          position: relative
+          display: inline-block
+          padding-left: 20px
+          line-height: 1
+          margin-bottom: 2px
+          &:hover, &:focus
+            color: $blue
+            &:before
+              background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2.68917 5.64292C3.70917 7.6475 5.3525 9.28375 7.35708 10.3108L8.91542 8.7525C9.10667 8.56125 9.39 8.4975 9.63792 8.5825C10.4312 8.84458 11.2883 8.98625 12.1667 8.98625C12.5562 8.98625 12.875 9.305 12.875 9.69458V12.1667C12.875 12.5562 12.5562 12.875 12.1667 12.875C5.51542 12.875 0.125 7.48458 0.125 0.833333C0.125 0.44375 0.44375 0.125 0.833333 0.125H3.3125C3.70208 0.125 4.02083 0.44375 4.02083 0.833333C4.02083 1.71875 4.1625 2.56875 4.42458 3.36208C4.5025 3.61 4.44583 3.88625 4.2475 4.08458L2.68917 5.64292Z' fill='%23005BBD'/%3e%3c/svg%3e ")
+          &:before
+            +b_a
+            left: 0
+            top: 0
+            bottom: 0
+            margin: auto
+            width: 13px
+            height: 13px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2.68917 5.64292C3.70917 7.6475 5.3525 9.28375 7.35708 10.3108L8.91542 8.7525C9.10667 8.56125 9.39 8.4975 9.63792 8.5825C10.4312 8.84458 11.2883 8.98625 12.1667 8.98625C12.5562 8.98625 12.875 9.305 12.875 9.69458V12.1667C12.875 12.5562 12.5562 12.875 12.1667 12.875C5.51542 12.875 0.125 7.48458 0.125 0.833333C0.125 0.44375 0.44375 0.125 0.833333 0.125H3.3125C3.70208 0.125 4.02083 0.44375 4.02083 0.833333C4.02083 1.71875 4.1625 2.56875 4.42458 3.36208C4.5025 3.61 4.44583 3.88625 4.2475 4.08458L2.68917 5.64292Z' fill='black'/%3e%3c/svg%3e ")
+
+        &.order_call
+          font-size: 14px
+
+
+.user_menu
+  +flex
+  +ai-center
+  +j-end
+  width: 100%
+  li
+    + li
+      border-left: 1px solid  #C4C4C4
+    &:last-child
+      a
+        padding-right: 0
+    a
+      +flex
+      +ai-center
+      font-size: 14px
+      color: $black
+      text-decoration: none
+      padding: 9px 25px
+      &:hover, &:focus
+        text-decoration: none
+      picture
+        display: inline-block
+        position: relative
+        margin-right: 18px
+        .count
+          +flex
+          +ai-center
+          +j-center
+          color: #fff
+          position: absolute
+          right: -10px
+          top: -10px
+          width: 20px
+          height: 20px
+          font-size: 12px
+          line-height: 1
+          +border-radius(50%)
+          background: $blue
+
+
+
+
+
+
+.main_menu
+  background: $blue
+  position: relative
+
+  .close
+    @media (max-width: 991px)
+      display: none
+  .nav
+    +flex
+    +ai-center
+    +wrap
+    > li
+      width: 20%
+      +flex
+      +ai-center
+      +j-center
+      + li
+        border-left: 1px solid #3577BF
+      > a
+        height: 50px
+        +flex
+        +ai-center
+        +j-center
+        &:hover, &:focus
+          text-decoration: none
+          background: #3577BF
+    li
+
+      @media (min-width: 992px)
+        &:hover
+          .sub_menu
+            display: block
+
+      .arrow
+        width: 30px
+        height: 30px
+        position: relative
+        @media (min-width: 992px)
+          display: none
+        &:before
+          +b_a
+          +m_a
+          width: 10px
+          height: 7px
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L9 1' stroke='white' stroke-width='1.5'/%3e%3c/svg%3e ")
+
+
+      &.has_child
+        > a
+          &:after
+            content: ''
+            width: 10px
+            height: 7px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='7' viewBox='0 0 10 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 5L9 1' stroke='white' stroke-width='1.5'/%3e%3c/svg%3e ")
+            margin-left: 8px
+            @media (max-width: 991px)
+              display: none
+
+      a
+        width: 100%
+        position: relative
+        color: #fff
+        font-size: 17px
+        font-family: $medium
+
+
+      .sub_menu
+        display: none
+        @media (min-width: 992px)
+          position: absolute
+          left: 0
+          width: 100%
+          top: 100%
+          background: #fff
+          +box-shadow(1px 1px 30px rgba(50, 50, 50, 0.1))
+          padding: 30px 30px 10px
+        ul
+          li
+            margin-bottom: 23px
+            @media (max-width: 1400px)
+              margin-bottom: 10px
+            @media (max-width: 1200px)
+              margin-bottom: 5px
+            a
+              color: $black
+              font-size: 16px
+              font-family: $medium
+              position: relative
+              padding-left: 20px
+              display: inline-block
+              &:hover, &:focus
+                text-decoration: none
+                color: $blue
+                &:before
+                  background: $blue
+              &:before
+                +b_a
+                left: 0
+                top: 7px
+                width: 9px
+                height: 9px
+                background: #C3C3C3
+
+
+
+
+
+
+
