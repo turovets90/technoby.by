@@ -1,132 +1,19 @@
-if page.title === "Главная1"
-    footer(style="background-image:url(img/f_bg1.jpg)")
-        .container
-            .footer_row
-                .col_left
-                    .f_widjet
-                        p Навигация по сайту:
-                        ul
-                            li
-                                a(href="#") Наши проекты
-                            li
-                                a(href="#") О нас
-                            li
-                                a(href="#") Контакты
-                    .f_widjet
-                        p Основные услуги:
-                        ul
-                            li
-                                a(href="#") Изготовление металлических изделий
-                            li
-                                a(href="#") Полимерная порошковая покраска
-                            li
-                                a(href="#") Декорирование метала под дерево
-                .col_right
-                    .f_widjet
-                        p Контактная информация:
-                        .location 220073, г.Минск, ул.Бирюзова 4/5, офис 121 УНП ХХХХХХХХХ
-                        .phones
-                            ul
-                                li
-                                    a(href="tel: +375 17 310 10 07") +375(17) 310-10-07
-                                li
-                                    a(href="tel: +375 29 625 00 85") +375(29) 625-00-85
-                        .email
-                            a(href="mailto: info@trimil-d.by") info@trimil-d.by
-
-                        ul.social_menu
-                            li
-                                a(href="#")
-                                    img.icon(src="img/facebook.svg")
-                            li
-                                a(href="#")
-                                    img.icon(src="img/instagram.svg")
-            .copyright Компания «Тримил Д» основана в ХХХХ г.
-else if page.title === "Главная2"
-    footer(style="background-image:url(img/f_bg_2.jpg)")
-        .container
-            .footer_row
-                .col_left
-                    .f_widjet
-                        p Навигация по сайту:
-                        ul
-                            li
-                                a(href="#") Наши проекты
-                            li
-                                a(href="#") О нас
-                            li
-                                a(href="#") Контакты
-                    .f_widjet
-                        p Основные услуги:
-                        ul
-                            li
-                                a(href="#") Изготовление металлических изделий
-                            li
-                                a(href="#") Полимерная порошковая покраска
-                            li
-                                a(href="#") Декорирование метала под дерево
-                .col_right
-                    .f_widjet
-                        p Контактная информация:
-                        .location 220073, г.Минск, ул.Бирюзова 4/5, офис 121 УНП ХХХХХХХХХ
-                        .phones
-                            ul
-                                li
-                                    a(href="tel: +375 17 310 10 07") +375(17) 310-10-07
-                                li
-                                    a(href="tel: +375 29 625 00 85") +375(29) 625-00-85
-                        .email
-                            a(href="mailto: info@trimil-d.by") info@trimil-d.by
-
-                        ul.social_menu
-                            li
-                                a(href="#")
-                                    img.icon(src="img/facebook.svg")
-                            li
-                                a(href="#")
-                                    img.icon(src="img/instagram.svg")
-            .copyright Компания «Тримил Д» основана в ХХХХ г.
-else
-    footer(style="background-image:url(img/footer_bg.png)")
-        .container
-                .footer_row
-                    .col_left
-                        .f_widjet
-                            p Навигация по сайту:
-                            ul
-                                li
-                                    a(href="#") Наши проекты
-                                li
-                                    a(href="#") О нас
-                                li
-                                    a(href="#") Контакты
-                        .f_widjet
-                            p Основные услуги:
-                            ul
-                                li
-                                    a(href="#") Изготовление металлических изделий
-                                li
-                                    a(href="#") Полимерная порошковая покраска
-                                li
-                                    a(href="#") Декорирование метала под дерево
-                    .col_right
-                        .f_widjet
-                            p Контактная информация:
-                            .location 220073, г.Минск, ул.Бирюзова 4/5, офис 121 УНП ХХХХХХХХХ
-                            .phones
-                                ul
-                                    li
-                                        a(href="tel: +375 17 310 10 07") +375(17) 310-10-07
-                                    li
-                                        a(href="tel: +375 29 625 00 85") +375(29) 625-00-85
-                            .email
-                                a(href="mailto: info@trimil-d.by") info@trimil-d.by
-
-                            ul.social_menu
-                                li
-                                    a(href="#")
-                                        img.icon(src="img/facebook.svg")
-                                li
-                                    a(href="#")
-                                        img.icon(src="img/instagram.svg")
-                .copyright Компания «Тримил Д» основана в ХХХХ г.
+footer
+    .container
+        .f_row
+            .col_left
+                .f_logo
+                    a(href="#")
+                        img(src="img/f_logo.svg")
+            .col_center
+                -var f_menu=['Главная','Каталог товаров','О компании','Оплата и доставка','Контакты'];
+                ul.f_menu
+                    for f_menu_item,  index in f_menu
+                        li
+                            a(href="#")=f_menu_item
+                p.f_contacts ООО "ТЕХНОБАЙ-ИТ" Республика Беларусь, 220040, г. Минск, ул. Корш-Саблина, д. 74, ком. 1 <br>р/с BY16 AKBB 3012 0000 4567 8000 0000 в ОАО «АСБ Беларусбанк» г. Минск, ул. Куйбышева, 18 <br>S.W.I.F.T.: AKBBBY2X <br>УНП 193417656
+            .col_right
+                .subscribe
+                    .h2 Подпишитесь на наш прайс!
+                    p Узнавайте все новости первыми
+                    a.btn_default(href="#") Прайс

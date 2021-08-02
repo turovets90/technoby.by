@@ -128,12 +128,22 @@ $reg: 'Mariupol Regular'
   font-style: normal
 $bold: 'Mariupol Bold'
 
+@font-face 
+  font-family: 'Zona Pro SemiBold'
+  src: url('../fonts/ZonaPro-SemiBold.eot')
+  src: local('Zona Pro SemiBold'), local('ZonaPro-SemiBold'), url('../fonts/ZonaPro-SemiBold.eot?#iefix') format('embedded-opentype'), url('../fonts/ZonaPro-SemiBold.woff2') format('woff2'), url('../fonts/ZonaPro-SemiBold.woff') format('woff'), url('../fonts/ZonaPro-SemiBold.ttf') format('truetype')
+  font-weight: 600
+  font-style: normal
+$z_600: 'Zona Pro SemiBold'
+
+
+
 /*********************************/
 
 $black: #323232
 $gray: #717171
 $blue: #005BBD
-
+$blue_hover: #3E93EF
 
 a, button
   +transition($transition_default)
@@ -171,10 +181,8 @@ ul
     list-style: none
 
 .container
+  width: 100%
   max-width: 1410px
-  padding-left: 15px
-  padding-right: 15px
-  margin: auto
 
 
 body
@@ -186,26 +194,64 @@ body
 
 
 
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5
+  font-family: $z_600
+
+h1, .h1
+  font-size: 28px
+  line-height: 33px
+  margin-bottom: 44px
+  @media (max-width: 1200px)
+    margin-bottom: 30px
+h2, .h2
+  font-size: 22px
+  line-height: 26px
+  margin: 30px 0
+  @media (max-width: 1200px)
+    font-size: 20px
+  @media (max-width: 767px)
+    font-size: 18px
+
 
 .h_row
   +flex
   +ai-center
   +wrap
+  width: 100%
   padding: 17px 0
+  @media (max-width: 991px)
+    +j-beetween
+    padding: 10px 0
   .col_left
     width: 66%
     +flex
     +ai-center
     +wrap
     +j-beetween
+    @media (max-width: 1400px)
+      width: 64%
+    @media (max-width: 991px)
+      width: auto
+      .h_contacts, .search
+        display: none
+
   .col_right
     width: 34%
+    @media (max-width: 1400px)
+      width: 36%
+    @media (max-width: 991px)
+      width: auto
 
 
 
   .search
     width: 100%
     max-width: 440px
+    @media (max-width: 1400px)
+      max-width: 380px
+    @media (max-width: 1200px)
+      max-width: 320px
+
     .search_form
       +flex
       +ai-center
@@ -289,30 +335,124 @@ body
           font-size: 14px
 
 
-.user_menu
+.t_menu
   +flex
   +ai-center
   +j-end
   width: 100%
   li
-    + li
-      border-left: 1px solid  #C4C4C4
+    +flex
+    +ai-center
+    border-right: 1px solid  #C4C4C4
+    padding: 9px 25px
+    @media (max-width: 1400px)
+      padding: 9px 15px
+    @media (max-width: 1200px)
+      padding: 9px 10px
+    @media (max-width: 991px)
+      padding: 0 10px
+      height: 40px
+    @media (max-width: 575px)
+      padding: 0 4px
+    &:nth-child(5)
+      @media (min-width: 992px)
+        border-right: 0
+        padding-right: 0
+
     &:last-child
+      border-right: 0
       a
         padding-right: 0
+    &.mm_contacts
+      position: relative
+      .mm_contacts_btn
+        background: none
+        border: 0
+      .h_contacts
+        display: none
+        position: absolute
+        top: 100%
+        right: 0
+        min-width: 200px
+        z-index: 3
+        background: #fff
+        text-align: center
+        padding: 5px 0
+        +box-shadow(1px 1px 30px rgba(50, 50, 50, 0.1))
+        ul
+          li
+            border: 0
+            +j-center
+            height: auto
+            padding: 5px 10px
+      @media (min-width: 992px)
+        display: none
+    &.mm_search
+      position: relative
+      .search
+        display: none
+        position: absolute
+        right: 0
+        top: 100%
+        min-width: 300px
+        background: #fff
+        +box-shadow(1px 1px 30px rgba(50, 50, 50, 0.1))
+        @media (min-width: 992px)
+          display: none
+      .mm_search_btn
+        background: none
+        border: 0
+        width: 30px
+        height: 30px
+
+      @media (min-width: 992px)
+        display: none
+    &.mm_btn
+
+      .hamburger
+        width: 28px
+        height: 22px
+        background: none
+        border: 0
+        position: relative
+        span
+          position: absolute
+          left: 0
+          width: 100%
+          height: 2px
+          +border-radius(2px)
+          background: $black
+          &:nth-child(1)
+            top: 0
+          &:nth-child(2)
+            top: 0
+            bottom: 0
+            margin: auto
+          &:nth-child(3)
+            bottom: 0
+
+      @media (min-width: 992px)
+        display: none
     a
       +flex
       +ai-center
       font-size: 14px
       color: $black
       text-decoration: none
-      padding: 9px 25px
+
       &:hover, &:focus
         text-decoration: none
+      .txt
+        @media (max-width: 991px)
+          display: none
       picture
         display: inline-block
         position: relative
         margin-right: 18px
+        @media (max-width: 1400px)
+          margin-right: 15px
+        @media (max-width: 1200px)
+          margin-right: 10px
         .count
           +flex
           +ai-center
@@ -327,18 +467,60 @@ body
           line-height: 1
           +border-radius(50%)
           background: $blue
+          @media (max-width: 1200px)
+            width: 18px
+            height: 18px
+            font-size: 11px
 
-
-
+.logo
+  a
+    display: inline-block
+  img
+    @media (max-width: 575px)
+      max-height: 55px
+    @media (max-width: 375px)
+      max-height: 45px
 
 
 
 .main_menu
   background: $blue
   position: relative
+  @media (max-width: 991px)
+    position: fixed
+    top: 0
+    right: 0
+    width: 80%
+    height: 100%
+    overflow-y: auto
+    padding-top: 50px
+    z-index: 9999
+    +transform(translateX(100%))
+    opacity: 0
+    +transition($transition_default)
+    &.open
+      +transform(translateX(0))
+      opacity: 1
 
-  .close
-    @media (max-width: 991px)
+
+  .mm_close
+    position: absolute
+    left: 0
+    top: 0
+    width: 30px
+    height: 30px
+    background: #fff
+    &:before, &:after
+      +b_a
+      width: 20px
+      height: 2px
+      background: $blue
+      +m_a
+    &:before
+      +transform(rotate(45deg))
+    &:after
+      +transform(rotate(-45deg))
+    @media (min-width: 992px)
       display: none
   .nav
     +flex
@@ -346,19 +528,29 @@ body
     +wrap
     > li
       width: 20%
-      +flex
-      +ai-center
-      +j-center
-      + li
-        border-left: 1px solid #3577BF
-      > a
-        height: 50px
+      @media (min-width: 992px)
         +flex
         +ai-center
         +j-center
-        &:hover, &:focus
-          text-decoration: none
-          background: #3577BF
+      @media (max-width: 991px)
+        width: 100%
+        padding: 5px 10px
+        position: relative
+
+
+      + li
+        border-left: 1px solid #3577BF
+      > a
+        @media (min-width: 992px)
+          height: 50px
+          +flex
+          +ai-center
+          +j-center
+          &:hover, &:focus
+            text-decoration: none
+            background: #3577BF
+        @media (max-width: 991px)
+          //padding:
     li
 
       @media (min-width: 992px)
@@ -369,7 +561,12 @@ body
       .arrow
         width: 30px
         height: 30px
-        position: relative
+        position: absolute
+        right: 0
+        top: 7px
+        &.act
+          &:before
+            +transform(rotate(180deg))
         @media (min-width: 992px)
           display: none
         &:before
@@ -401,7 +598,9 @@ body
 
       .sub_menu
         display: none
+
         @media (min-width: 992px)
+          z-index: 99
           position: absolute
           left: 0
           width: 100%
@@ -409,13 +608,21 @@ body
           background: #fff
           +box-shadow(1px 1px 30px rgba(50, 50, 50, 0.1))
           padding: 30px 30px 10px
+        @media (max-width: 991px)
+          padding-left: 10px
         ul
+          @media (max-width: 991px)
+            margin: 0
           li
             margin-bottom: 23px
             @media (max-width: 1400px)
               margin-bottom: 10px
             @media (max-width: 1200px)
               margin-bottom: 5px
+            @media (max-width: 991px)
+              -ms-flex: 0 0 100%
+              flex: 0 0 100%
+              max-width: 100%
             a
               color: $black
               font-size: 16px
@@ -423,11 +630,15 @@ body
               position: relative
               padding-left: 20px
               display: inline-block
-              &:hover, &:focus
-                text-decoration: none
-                color: $blue
-                &:before
-                  background: $blue
+              @media (max-width: 991px)
+                color: #fff
+                line-height: 1.2
+              @media (min-width: 992px)
+                &:hover, &:focus
+                  text-decoration: none
+                  color: $blue
+                  &:before
+                    background: $blue
               &:before
                 +b_a
                 left: 0
@@ -435,10 +646,717 @@ body
                 width: 9px
                 height: 9px
                 background: #C3C3C3
+                @media (max-width: 991px)
+                  top: 4px
+                  background: #fff
+
+
+
+main
+  padding-top: 18px
+  @media (max-width: 575px)
+    padding-top: 5px
+
+
+
+.m_slider
+  margin-bottom: 110px
+  @media (max-width: 1200px)
+    margin-bottom: 80px
+  @media (max-width: 575px)
+    margin-bottom: 50px
+  .m_slider_item
+    background-position: center
+    background-size: cover
+    height: 440px
+    padding-left: 115px
+    @media (max-width: 1400px)
+      padding-left: 80px
+    @media (max-width: 1200px)
+      height: 400px
+      padding-left: 50px
+    @media (max-width: 767px)
+      height: 300px
+      padding-left: 30px
+      padding-right: 30px
+    .center
+      height: 100%
+      width: 100%
+      +flex
+      +ai-center
+      .m_slider_item_content
+        max-width: 530px
+        @media (max-width: 1200px)
+          max-width: 100%
+        .title
+          color: $black
+          font-size: 52px
+          line-height: 61px
+          font-family: $z_600
+          margin-bottom: 30px
+          @media (max-width: 1400px)
+            font-size: 45px
+            line-height: 1.2
+            margin-bottom: 25px
+          @media (max-width: 1200px)
+            font-size: 40px
+            margin-bottom: 20px
+          @media (max-width: 991px)
+            font-size: 30px
+            margin-bottom: 10px
+          @media (max-width: 767px)
+            font-size: 25px
+          @media (max-width: 575px)
+            font-size: 22px
+        .desc
+          font-size: 20px
+          line-height: 32px
+          padding-bottom: 20px
+          @media (max-width: 1400px)
+            font-size: 18px
+            line-height: 1.2
+          @media (max-width: 1200px)
+            font-size: 16px
+            padding-bottom: 10px
+          @media (max-width: 991px)
+            font-size: 14px
+
+
+
+
+.btn_default
+  background: $blue
+  border: 0
+  color: #fff
+  font-size: 16px
+  width: 100%
+  max-width: 205px
+  height: 45px
+  +flex
+  +ai-center
+  +j-center
+  text-decoration: none
+  @media (max-width: 1200px)
+    height: 40px
+    font-size: 14px
+  @media (max-width: 767px)
+    height: 35px
+  &:hover, &:focus
+    text-decoration: none
+    background: #3E93EF
+    color: #fff
+
+  &.download
+    background: #fff
+    &:hover, &:focus
+      background: #3E93EF
+      span
+        color: #fff
+    span
+      color: $black
+      position: relative
+      display: inline-block
+      padding-right: 35px
+      &:before
+        +b_a
+        right: 0
+        top: 0
+        bottom: 0
+        margin: auto
+        width: 18px
+        height: 19px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='19' viewBox='0 0 18 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M6 0V10H0L9 19L18 10H12V0H9H6Z' fill='url(%23paint0_linear)'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear' x1='9' y1='-1' x2='9' y2='23.5' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23005BBD' stop-opacity='0'/%3e%3cstop offset='1' stop-color='%23005BBD'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ")
+
+
+
+
+.slick-arrow
+  width: 40px
+  height: 40px
+  background: linear-gradient(0deg, #E1E1E1, #E1E1E1), #E1E1E1
+  z-index: 3
+  @media (max-width: 1200px)
+    width: 30px
+    height: 30px
+  @media (max-width: 575px)
+    width: 25px
+    height: 25px
+  &:hover, &:focus
+    background: rgb(183, 183, 183)
+  &:before
+    +b_a
+    +m_a
+    width: 11px
+    height: 18px
+    opacity: 1
+.slick-prev
+  left: 0
+  &:before
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='18' viewBox='0 0 11 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M10 1L2 9L10 17' stroke='%23323232' stroke-width='2'/%3e%3cpath d='M10 1L2 9L10 17' stroke='%23323232' stroke-width='2'/%3e%3c/svg%3e ")
+
+.slick-next
+  right: 0
+  &:before
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='18' viewBox='0 0 11 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 17L9 9L1 0.999999' stroke='%23323232' stroke-width='2'/%3e%3cpath d='M1 17L9 9L1 0.999999' stroke='%23323232' stroke-width='2'/%3e%3c/svg%3e ")
+
+
+.slick-dots
+  bottom: -35px
+  @media (max-width: 1200px)
+    bottom: -25px
+  li
+    width: 12px
+    height: 12px
+    margin: 0 12px
+    @media (max-width: 1200px)
+      margin: 0 8px
+    @media (max-width: 767px)
+      margin: 0 5px
+    &.slick-active
+      button
+        background: $blue
+    button
+      width: 12px
+      height: 12px
+      +border-radius(50%)
+      background: #C4C4C4
+
+      &:before
+        display: none
+
+
+
+.download_price
+  +flex
+  +ai-center
+  +j-beetween
+  +wrap
+  background: $blue
+  padding: 30px 118px
+  color: #fff
+  margin-bottom: 85px
+  @media (max-width: 1400px)
+    padding: 30px 80px
+  @media (max-width: 1200px)
+    margin-bottom: 50px
+    padding: 30px
+  @media (max-width: 575px)
+    margin-bottom: 30px
+    padding: 20px
+  .h3
+    font-size: 22px
+    font-family: $medium
+    margin-bottom: 12px
+    @media (max-width: 1200px)
+      font-size: 20px
+    @media (max-width: 767px)
+      font-size: 18px
+  p
+    font-size: 18px
+    @media (max-width: 1200px)
+      font-size: 16px
+    @media (max-width: 575px)
+      font-size: 14px
+    @media (min-width: 1201px)
+      margin-bottom: 0
+
+
+.adv
+  margin-bottom: 85px
+  @media (max-width: 1200px)
+    +j-center
+    margin-bottom: 50px
+  @media (max-width: 575px)
+    margin-bottom: 30px
+  > div
+    @media (max-width: 1200px)
+      margin-bottom: 20px
+  .adv_item
+    +flex
+    +ai-center
+    @media (max-width: 1200px)
+
+    &:hover
+      .text
+        p
+          color: $blue_hover
+
+      picture
+        .img_default
+          display: none
+        .img_hover
+          display: block
+    picture
+      display: inline-block
+      min-width: 55px
+      margin-right: 10px
+      img
+        +transition($transition_default)
+
+      .img_hover
+        display: none
+
+    .text
+      p
+        font-size: 18px
+        font-family: $medium
+        margin-bottom: 8px
+        +transition($transition_default)
+        @media (max-width: 1200px)
+          margin-bottom: 5px
+        @media (max-width: 575px)
+          margin-bottom: 0
+      span
+        color: #717171
+        font-size: 16px
+
+
+.product_tabs_content
+  .products_list
+    .product_item
+      width: 25%
+      @media (max-width: 1200px)
+        width: 33.33%
+      @media (max-width: 991px)
+        width: 50%
+      @media (max-width: 575px)
+        width: 100%
+.products_list
+  +flex
+  +wrap
+  border-top: 1px solid #EAEAEA
+  border-left: 1px solid #EAEAEA
+  .product_item
+    width: 33.33%
+    border-right: 1px solid #EAEAEA
+    border-bottom: 1px solid #EAEAEA
+    padding: 18px 30px 30px
+    position: relative
+    @media (max-width: 1200px)
+      padding: 18px 20px
+    @media (max-width: 991px)
+      width: 50%
+      padding: 15px
+    @media (max-width: 575px)
+      width: 100%
+    .label
+      position: absolute
+      left: 0
+      top: 0
+      background: #E1E1E1
+      height: 43px
+      +flex
+      +ai-center
+      padding: 3px 15px
+      color: $black
+      font-size: 14px
+      z-index: 2
+      @media (max-width: 1200px)
+        height: 35px
+      @media (max-width: 767px)
+        height: 30px
+    .img_thumbnail
+      width: 100%
+      height: 240px
+      position: relative
+      @media (max-width: 767px)
+        height: 200px
+      a
+        width: 100%
+        height: 100%
+        display: inline-block
+        position: relative
+        img
+          position: absolute
+          +m_a
+          max-height: 98%
+
+    .product_item_name
+      display: -webkit-box
+      font-size: 18px
+      color: $black
+      text-decoration: none
+      margin-bottom: 13px
+      -webkit-box-orient: vertical
+      overflow: hidden
+      text-overflow: ellipsis
+      white-space: normal
+      -webkit-line-clamp: 1
+      &:hover, &:focus
+        color: $blue
+
+    .amount_price
+      +flex
+      +j-beetween
+      +ai-center
+      margin-bottom: 20px
+      .amount
+        +flex
+        +ai-center
+        border: 1px solid #EAEAEA
+        span
+          height: 35px
+          width: 45px
+          +flex
+          +ai-center
+          +j-center
+          font-size: 22px
+          cursor: pointer
+          @media (max-width: 1200px)
+            width: 30px
+            height: 40px
+          @media (max-width: 767px)
+            width: 28px
+            height: 35px
+          &:hover, &:focus
+            background: $blue_hover
+            color: #fff
+          &.down
+            border-right: 1px solid #EAEAEA
+          &.up
+            border-left: 1px solid #EAEAEA
+        input
+          height: 35px
+          width: 55px
+          text-align: center
+          font-size: 14px
+          border: 0
+          @media (max-width: 1200px)
+            width: 50px
+          @media (max-width: 767px)
+            width: 45px
+
+
+      .price
+        font-size: 18px
+        font-family: $bold
+        @media (max-width: 767px)
+          font-size: 16px
+
+    .btn_group
+      +flex
+      .btn_default
+        width: calc(100% - 122px)
+      a
+        + a
+          margin-left: 2px
+      .btn_small
+        height: 45px
+        width: 59px
+        position: relative
+        background: #E1E1E1
+        @media (max-width: 1200px)
+          height: 40px
+        @media (max-width: 767px)
+          height: 35px
+        &:hover, &:focus
+          background: #b7b7b7
+        &:before
+          +b_a
+          +m_a
+          width: 27px
+          height: 23px
+
+
+        &.add_to_compare
+          &:before
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='27' height='23' viewBox='0 0 27 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M4.26918 2.45475C3.94452 2.26383 3.76823 2.02308 3.7798 1.671C3.79274 1.29433 3.99352 1.00439 4.33724 0.904723C4.72656 0.791464 5.10295 0.910548 5.34866 1.19337C5.42898 1.28592 5.56919 1.38818 5.68217 1.38818C7.97318 1.39918 10.2642 1.39659 12.5559 1.3953C12.6103 1.3953 12.6648 1.38429 12.7641 1.37329C12.7641 1.1526 12.7587 0.940319 12.7655 0.728686C12.7784 0.309951 13.0949 0.00382822 13.5115 -5.49461e-05C13.9267 -0.00393811 14.2541 0.301538 14.2697 0.716389C14.2779 0.929316 14.2711 1.14289 14.2711 1.37394C14.4065 1.383 14.5045 1.39594 14.6032 1.39594C16.8262 1.39724 19.0498 1.39983 21.2727 1.39012C21.4048 1.38947 21.5865 1.32346 21.658 1.22832C21.9064 0.898251 22.2399 0.830943 22.619 0.891779C22.9382 0.94226 23.1588 1.14095 23.2275 1.43542C23.3105 1.78944 23.2561 2.12533 22.9103 2.35897C22.8654 2.38939 22.8218 2.42175 22.7633 2.46317C23.1812 3.62165 23.5944 4.77171 24.0116 5.92113C24.6841 7.77469 25.364 9.62567 26.0256 11.4825C26.1161 11.7368 26.2298 11.8404 26.5218 11.8345C26.6817 11.8313 26.9145 11.9226 26.9853 12.041C27.0418 12.1348 26.9444 12.3698 26.8423 12.4824C24.5684 14.9941 20.2382 14.9916 17.9581 12.4759C17.8566 12.3646 17.7722 12.1426 17.8233 12.0306C17.873 11.9213 18.1126 11.821 18.2569 11.8339C18.591 11.8637 18.6993 11.72 18.7966 11.4495C19.8271 8.57398 20.8712 5.70238 21.9112 2.83013C22.067 2.40039 21.8343 2.09038 21.3496 2.08974C19.6821 2.08779 18.0152 2.08909 16.3477 2.08909C15.6698 2.08909 14.9925 2.08909 14.2942 2.08909C14.2942 8.21608 14.2942 14.3049 14.2942 20.4377C14.7693 20.4772 15.2498 20.507 15.7283 20.5587C17.8199 20.7865 19.8277 21.2778 21.6566 22.3068C21.8132 22.3948 21.9187 22.5663 22.048 22.6984C21.8608 22.7954 21.6777 22.9003 21.4851 22.9851C21.4191 23.0142 21.3285 22.9928 21.2489 22.9928C16.0992 22.9928 10.9496 22.9935 5.8006 22.9915C5.65426 22.9915 5.49432 23.0012 5.365 22.9501C5.22274 22.8938 5.10976 22.7721 4.98384 22.6789C5.07164 22.5767 5.13767 22.4291 5.25133 22.3793C6.16406 21.9774 7.06453 21.536 8.01061 21.2189C9.38413 20.7574 10.823 20.5561 12.2789 20.483C12.4245 20.4759 12.5702 20.4584 12.739 20.4435C12.739 14.3295 12.739 8.23291 12.739 2.08909C12.5981 2.08909 12.466 2.08909 12.3347 2.08909C10.2363 2.08909 8.13789 2.09686 6.0395 2.08326C5.63521 2.08068 5.27788 2.10915 5.01039 2.51494C5.1751 2.96927 5.35887 3.47538 5.54196 3.98149C6.44992 6.48742 7.36197 8.99142 8.25904 11.5006C8.34617 11.7446 8.45098 11.8436 8.73208 11.8352C8.89612 11.8307 9.17449 11.9187 9.20512 12.019C9.248 12.1607 9.15748 12.3937 9.04109 12.516C6.71741 14.9663 2.62817 14.987 0.264339 12.5698C0.202402 12.5063 0.138422 12.4442 0.0873749 12.373C-0.101841 12.1096 0.0342856 11.8041 0.365753 11.8365C0.821096 11.8811 0.949736 11.6663 1.07701 11.3123C2.10409 8.43419 3.15158 5.56452 4.19295 2.69227C4.21813 2.62173 4.23855 2.54924 4.26918 2.45475ZM4.70751 2.74729C4.65646 2.74858 4.60609 2.75052 4.55504 2.75182C3.46399 5.76127 2.37362 8.77137 1.27712 11.7964C3.54226 11.7964 5.74411 11.7964 7.98951 11.7964C6.88689 8.75649 5.7972 5.75156 4.70751 2.74729ZM19.0464 11.7951C21.3163 11.7951 23.5175 11.7951 25.7595 11.7951C24.6555 8.75261 23.5644 5.74574 22.4734 2.73887C22.4244 2.7434 22.3747 2.74729 22.3257 2.75182C21.236 5.75674 20.1463 8.76231 19.0464 11.7951Z' fill='%23323232'/%3e%3c/svg%3e ")
+        &.add_to_cart
+          &:before
+            width: 25px
+            height: 23px
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='25' height='23' viewBox='0 0 25 23' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M20.704 3.2898C15.4691 3.2898 10.0559 3.289 4.73142 3.29788C4.72978 3.29788 4.72896 3.29788 4.72732 3.29788C4.49814 3.29788 4.48089 3.26719 4.43325 3.10891C4.31496 2.72127 4.16957 2.34009 4.02911 1.97183C3.97818 1.83858 3.92725 1.70452 3.87714 1.57127C3.62497 0.896125 3.23643 0.441455 2.68772 0.181413C2.07166 -0.110933 1.33073 -0.0471338 0.753273 0.346967C0.230026 0.704727 -0.0492573 1.26519 0.00577803 1.84665C0.032885 2.13657 0.340097 2.47737 0.637452 2.54763C0.899486 2.61063 1.10648 2.41761 1.27241 2.26337C1.30691 2.23187 1.33977 2.20037 1.3718 2.17453C1.4753 2.08893 1.49912 1.97506 1.5057 1.90561C1.53691 1.862 1.56566 1.81758 1.59441 1.77397C1.64123 1.70209 1.71762 1.58499 1.76034 1.55269C1.84577 1.53815 2.03716 1.58903 2.22691 1.7029C2.24826 1.71582 2.30987 1.77478 2.40762 2.04047C3.16743 4.08689 3.92396 6.13412 4.68132 8.18134C5.27438 9.78521 5.86745 11.3891 6.46216 12.9929C6.46791 13.0075 6.4712 13.0196 6.47448 13.0293C6.46955 13.0333 6.46298 13.0373 6.45559 13.0422C5.09203 13.937 4.5466 15.3365 4.99756 16.7862C5.43785 18.201 6.72091 19.0797 8.34651 19.0797C12.8364 19.0805 17.3263 19.0805 21.817 19.0805C21.8392 19.0805 21.8638 19.0837 21.8885 19.0853C21.9279 19.0894 21.9731 19.0934 22.0224 19.0934C22.1218 19.0934 22.2343 19.0765 22.3362 19.0014C22.5275 18.86 22.8175 18.646 22.8208 18.344C22.8249 18.0323 22.5226 17.7787 22.3419 17.6559C22.1776 17.5437 21.9862 17.559 21.8466 17.5695C21.8146 17.5719 21.7825 17.5752 21.7529 17.5752C19.0809 17.5744 16.4088 17.5744 13.7367 17.5744H11.7324C11.3792 17.5735 11.0235 17.5752 10.6687 17.576C9.84642 17.5776 8.99707 17.5792 8.16251 17.5711C7.35751 17.5639 6.68887 17.0866 6.46052 16.3557C6.29048 15.8114 6.3833 15.2445 6.7168 14.8011C7.0618 14.3408 7.61297 14.0767 8.2274 14.0759C11.1533 14.0719 14.1285 14.0727 17.0059 14.0727C18.6931 14.0727 20.3804 14.0735 22.0667 14.0727C23.2603 14.0727 23.9256 13.4694 24.0447 12.2806C24.1778 10.9546 24.3248 9.60673 24.4661 8.30329C24.5343 7.67741 24.6025 7.05072 24.6698 6.42485C24.7355 5.80947 24.7996 5.19409 24.8661 4.56175L24.9992 3.29061L20.704 3.2898ZM5.18485 4.8226H23.2931C23.2841 4.91386 23.2759 5.00511 23.2668 5.09637C23.2233 5.547 23.183 5.97179 23.1362 6.40385C23.0385 7.31642 22.9391 8.22818 22.8397 9.14075C22.7296 10.1527 22.6196 11.1654 22.5111 12.1773C22.4717 12.5431 22.4479 12.5649 22.0791 12.5649C20.8995 12.5649 19.7191 12.5649 18.5395 12.5649C15.2473 12.5641 11.8425 12.5633 8.49354 12.5762C8.49108 12.5762 8.48861 12.5762 8.48697 12.5762C8.19044 12.5762 8.08858 12.4995 7.97276 12.1902C7.38791 10.6291 6.78662 9.04465 6.20506 7.51266C5.98409 6.9304 5.76313 6.34813 5.54217 5.76586C5.43292 5.47755 5.32449 5.18924 5.20867 4.88236L5.18485 4.8226Z' fill='%23323232'/%3e%3cpath d='M20.9298 19.1405C20.3984 19.13 19.9022 19.3247 19.5285 19.6824C19.1547 20.041 18.9469 20.5255 18.9428 21.0472C18.9387 21.5738 19.1432 22.0688 19.5194 22.4395C19.8858 22.8005 20.3696 22.9992 20.883 22.9992C20.8863 22.9992 20.8888 22.9992 20.892 22.9992C21.9796 22.9943 22.8626 22.1246 22.8602 21.061C22.8585 20.0192 21.9919 19.1575 20.9298 19.1405ZM20.8953 20.6354C20.8962 20.6354 20.897 20.6354 20.8986 20.6354C21.1155 20.637 21.3299 20.8486 21.3307 21.0626C21.3315 21.2863 21.1335 21.4882 20.906 21.4947C20.7984 21.4971 20.6867 21.451 20.6013 21.3679C20.5134 21.2823 20.4641 21.1692 20.4657 21.0586C20.469 20.8437 20.6809 20.6354 20.8953 20.6354Z' fill='%23323232'/%3e%3cpath d='M8.76211 19.1406C8.75718 19.1406 8.75226 19.1406 8.74815 19.1406C8.2249 19.1406 7.73698 19.336 7.37144 19.693C7.00016 20.0548 6.79563 20.5434 6.79563 21.0683C6.7948 21.5876 6.9977 22.0721 7.36569 22.4339C7.73451 22.7957 8.22901 22.9944 8.75883 22.9944C8.76047 22.9944 8.76293 22.9944 8.76458 22.9944C9.28782 22.9928 9.78068 22.7885 10.1511 22.4186C10.5232 22.0479 10.7245 21.5585 10.7179 21.0408C10.7048 19.9999 9.8275 19.1479 8.76211 19.1406ZM8.45326 21.3703C8.36865 21.2855 8.32429 21.1717 8.32758 21.0481C8.33087 20.9407 8.38179 20.8333 8.46804 20.7533C8.54772 20.679 8.64958 20.6379 8.74815 20.6379C8.75143 20.6379 8.75554 20.6379 8.75883 20.6379C8.98143 20.6451 9.18843 20.8543 9.18515 21.0691C9.18186 21.2912 8.97568 21.4939 8.7539 21.4947C8.63643 21.4955 8.53294 21.4503 8.45326 21.3703Z' fill='%23323232'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3crect width='25' height='23' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e ")
 
 
 
 
 
 
+.product_tabs
+  margin-bottom: 85px
+  @media (max-width: 1200px)
+    margin-bottom: 50px
+  @media (max-width: 767px)
+    margin-bottom: 30px
+  .nav
+    margin-bottom: 30px
+    @media (max-width: 1200px)
+      margin-bottom: 20px
+    .nav-item
+      padding: 3px 25px
+      @media (max-width: 1200px)
+        padding: 3px 20px
+      @media (max-width: 991px)
+        padding: 3px 10px
+      &:first-child
+        padding-left: 0
+      .nav-link
+        font-size: 22px
+        display: inline-block
+        padding: 3px 0
+        border-bottom: 2px solid #fff
+        @media (max-width: 1200px)
+          font-size: 20px
+        @media (max-width: 991px)
+          font-size: 18px
+        @media (max-width: 767px)
+          font-size: 16px
+        &.active
+          border-bottom: 2px solid $blue
+          font-family: $medium
+          color: $black
 
+.category_list
+  +flex
+  +wrap
+  position: relative
+  margin-bottom: 85px
+  @media (max-width: 1200px)
+    margin-bottom: 50px
+  @media (max-width: 767px)
+    margin-bottom: 30px
+  &:before
+    +b_a
+    width: 100%
+    height: 1px
+    bottom: 0
+    left: 0
+    background: #fff
+  &:after
+    +b_a
+    height: 100%
+    width: 1px
+    right: 0
+    top: 0
+    background: #fff
+
+
+  .category_list_item
+    width: 25%
+    padding: 40px 20px
+    +flex
+    border-bottom: 1px solid #EAEAEA
+    border-right: 1px solid #EAEAEA
+    +transition($transition_default)
+    @media (max-width: 1200px)
+      width: 33.33%
+    @media (max-width: 991px)
+      width: 50%
+      padding: 30px 15px
+    @media (max-width: 575px)
+      width: 100%
+      padding: 20px 10px
+    &:hover
+      +box-shadow(1px 1px 30px rgba(50, 50, 50, 0.1))
+    picture
+      width: 40px
+      min-width: 40px
+      text-align: center
+      margin-right: 15px
+      @media (max-width: 575px)
+        width: 35px
+        min-width: 35px
+        margin-right: 10px
+      img
+        display: inline-block
+
+    .category_title
+      color: $black
+      display: block
+      text-decoration: none
+      font-size: 18px
+      line-height: 17px
+      font-family: $medium
+      margin-bottom: 15px
+      @media (max-width: 1200px)
+        line-height: 1.2
+        font-size: 16px
+        margin-bottom: 10px
+
+    .subcategory_list
+      +flex
+      +wrap
+      line-height: 25px
+      @media (max-width: 1200px)
+        line-height: 1.2
+      li
+        padding: 0
+        &:last-child
+          a
+            span
+              display: none
+        a
+          font-size: 16px
+
+          @media (max-width: 1200px)
+            font-size: 14px
+
+          span
+            display: inline-block
+            margin: 0 2px
+
+
+strong, b
+  font-family: $bold
+.main_about
+  background: #E8ECF0
+  min-height: 458px
+  padding: 30px 0
+  +flex
+  +ai-center
+  strong
+    color: $blue
+
+  .desc
+    color: #717171
+    font-size: 16px
+    margin-bottom: 30px
+
+
+
+
+.main_contacts
+  background: #F4F4F4
+  .main_contacts_row
+    padding: 30px 0
+    .row
+      > div
+        margin-bottom: 30px
+        @media (max-width: 1200px)
+          margin-bottom: 20px
+
+  .title
+    color: #717171
+    font-size: 16px
+    margin-bottom: 20px
+    @media (max-width: 1200px)
+      margin-bottom: 10px
+    @media (max-width: 767px)
+      margin-bottom: 5px
+  ul
+    li
+      font-size: 16px
+      font-family: $medium
+      margin-bottom: 12px
+      @media (max-width: 1200px)
+        margin-bottom: 8px
+      @media (max-width: 767px)
+        margin-bottom: 3px
+      span
+        font-family: $reg
+        display: block
+      a
+        color: $black
+
+.phone
+  display: inline-block
+  position: relative
+  padding-left: 25px
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 13px
+    height: 13px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2.68917 5.64292C3.70917 7.6475 5.3525 9.28375 7.35708 10.3108L8.91542 8.7525C9.10667 8.56125 9.39 8.4975 9.63792 8.5825C10.4312 8.84458 11.2883 8.98625 12.1667 8.98625C12.5562 8.98625 12.875 9.305 12.875 9.69458V12.1667C12.875 12.5562 12.5562 12.875 12.1667 12.875C5.51542 12.875 0.125 7.48458 0.125 0.833333C0.125 0.44375 0.44375 0.125 0.833333 0.125H3.3125C3.70208 0.125 4.02083 0.44375 4.02083 0.833333C4.02083 1.71875 4.1625 2.56875 4.42458 3.36208C4.5025 3.61 4.44583 3.88625 4.2475 4.08458L2.68917 5.64292Z' fill='%23323232'/%3e%3c/svg%3e ")
+
+.email
+  display: inline-block
+  position: relative
+  padding-left: 25px
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 15px
+    height: 12px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='15' height='12' viewBox='0 0 15 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5 0H1.5C0.675 0 0.00749999 0.675 0.00749999 1.5L0 10.5C0 11.325 0.675 12 1.5 12H13.5C14.325 12 15 11.325 15 10.5V1.5C15 0.675 14.325 0 13.5 0ZM13.5 3L7.5 6.75L1.5 3V1.5L7.5 5.25L13.5 1.5V3Z' fill='%23323232'/%3e%3c/svg%3e ")
+.location
+  display: inline-block
+  position: relative
+  padding-left: 25px
+
+  &:before
+    +b_a
+    left: 0
+    top: 0
+    bottom: 0
+    margin: auto
+    width: 11px
+    height: 15px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='15' viewBox='0 0 11 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.5 0.416626C2.75875 0.416626 0.541664 2.63371 0.541664 5.37496C0.541664 9.09371 5.5 14.5833 5.5 14.5833C5.5 14.5833 10.4583 9.09371 10.4583 5.37496C10.4583 2.63371 8.24125 0.416626 5.5 0.416626ZM5.5 7.14579C4.5225 7.14579 3.72916 6.35246 3.72916 5.37496C3.72916 4.39746 4.5225 3.60413 5.5 3.60413C6.4775 3.60413 7.27083 4.39746 7.27083 5.37496C7.27083 6.35246 6.4775 7.14579 5.5 7.14579Z' fill='%23323232'/%3e%3c/svg%3e ")
+
+
+
+
+
+footer
+  background: #F4F4F4
+  border-top: 1px solid #EAEAEA
+  padding: 50px 0 30px
+  .f_row
+    +flex
+    +wrap
+    > div
+      @media (max-width: 991px)
+        margin-bottom: 30px
+        &:last-child
+          margin-bottom: 0
+    .col_left
+      width: 15%
+      @media (min-width: 992px)
+        padding-right: 15px
+      @media (max-width: 991px)
+        width: 100%
+    .col_center
+      width: 61%
+      @media (min-width: 1201px)
+        padding-right: 85px
+      @media (min-width: 992px)
+        padding-right: 30px
+      @media (max-width: 991px)
+        width: 100%
+    .col_right
+      width: 24%
+      @media (max-width: 991px)
+        width: 100%
+
+
+
+.f_menu
+  +flex
+  +ai-center
+  +wrap
+  +j-beetween
+  margin-bottom: 30px
+  @media (max-width: 991px)
+    +j-start
+  li
+    padding-right: 10px
+    @media (max-width: 991px)
+      padding-right: 20px
+    a
+      color: $black
+      font-size: 17px
+      font-family: $medium
+      &:hover, &:focus
+        color: $blue
+
+.f_contacts
+  color: #717171
+  font-size: 14px
+  line-height: 20px
+
+
+.subscribe
+  .h2
+    margin-top: 0
+    margin-bottom: 10px
+  p
+    color: #717171
+    font-size: 17px
+    margin-bottom: 20px

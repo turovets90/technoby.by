@@ -1,90 +1,181 @@
-.m_slider
-    -for(var ms=1;ms<=3;ms++)
-        .m_slider_item(style="background-image: url(img/m_slider-min.png)")
-            .center
-                .m_slider_item_content
-                    .title TRIMIL D #{ms}
-                    .desc
-                        p Изготовление металлоконструкций, лофт-мебели
-                        p полимерно-порошковое покрытие металла
-                        p декорирование металлических изделий под дерево
-                    a.btn_default.white(href="#") Подробнее
-
--var serv=['','Изготовление Металлических изделий','Полимерная порошковая покраска','Декорирование металла под дерево'];
-section.main_service
+main
     .container
-        .h2 Наши услуги
-        .sub_title Направления производства, которыми мы занимаемся:
-
-        .row.main_serv_list
-            -for(var s=1;s<=3;s++)
-                .col-12.col-md-6.col-xl-4
-                    .main_serv_item
-                        .main_serv_item_container
-                            picture
-                                img(src="img/serv_"+s+".svg")
-                            .title=serv[s]
-                            .excerpt Краткое описание. Краткое описание. Описание. Краткое описание.
-                            a.btn_default.black(href="#") Подробнее
+        .m_slider
+            -for(var ms=1;ms<=3;ms++)
+                .m_slider_item(style="background-image: url(img/m_slider-min.png)")
+                    .center
+                        .m_slider_item_content
+                            .title Название слайда #{ms}
+                            .desc
+                                p Здесь небольшой текст описание (не больше 2-х строк) небольшой текст описание
+                            a.btn_default(href="#") Подробнее
 
 
 
-
-section.main_projects
-    .container
-        .h2 Наши проекты
-
-        .row.main_projects_list
-            -for(var p=1;p<=6;p++)
-                .col-12.col-md-6.col-xl-4
-                    .main_project_item(style="background-image:url(img/project.png)")
-                        .main_project_item_content
-                            div
-                                .title Название проекта
-                                .excerpt Дополнительное описание.
-
-
-section.main_about(style="background-image:url(img/image59.png)")
-    .container.position-relative
-        .row
-            .col-12.col-md-6
-                .main_about_desc
-                    .h2 О НАС
-                    .desc Интерьеру – внутреннему дизайну помещения – посвящено огромное множество сайтов, учебных пособий по декорированию, печатных изданий и телепрограмм. Однако немаловажным в оформлении семейного гнёздышка или рабочей зоны является экстерьер. Компания «Тримил Д» предлагает своим клиентам огромный выбор заборов, ворот, оборудования для торговли и прочих изделий из металла!
-                    a.btn_default.grey(href="#") Подробнее
-
-            .col-12.col-md-6.d-flex.align-items-center
-                .feedback_form
-                    .h2 Остались вопросы?
-                    .sub_title Заполните форму ниже и наши сотрудники свяжутся с Вами в ближайшее время!
-                    form
-                        .row
-                            .col-12.col-xl-6
-                                .field
-                                    input.form-control(type="text")
-                                    label Ваше имя: <span class="red">*</span>
-                            .col-12.col-xl-6
-                                .field
-                                    input.form-control(type="text")
-                                    label Ваш телефон: <span class="red">*</span>
-                            .col-12.col-xl-6
-                                .field
-                                    input.form-control(type="text")
-                                    label Ваш E-mail:
-                            .col-12.col-xl-6
-                                .field
-                                    button.btn_default.black(type="submit") Отправить
+        .download_price
+            .text
+                .h3 Скачайте наш прайс!
+                p Чтобы подробнее ознакомиться с продукцией, которую мы предлагаем
+            a.btn_default.download(href="#")
+                span Скачать прайс
+        -var pr=['Первый поставщик','Бесплатная доставка','Выгодные покупки','Гарантия товар'];
+        .row.adv
+            for adv_item, index in pr
+                .col-12.col-sm-6.col-md-4.col-xl-3
+                    .adv_item
+                        picture
+                            img.img_default(src="img/pr_"+index+".svg")
+                            img.img_hover(src="img/pr_"+index+"_hover.svg")
+                        .text
+                            p=adv_item
+                            span Описание преимущества
 
 
+        .product_tabs
+            ul.nav(role="tablist")
+                li.nav-item
+                    a.nav-link.active(href="#tab1" id="tab1-link" role="tab" data-toggle="tab" aria-controls="tab1" aria-expanded="true") Новинки
+                li.nav-item
+                    a.nav-link(href="#tab2" id="tab2-link" role="tab" data-toggle="tab" aria-controls="tab2" aria-expanded="true") Акции
+                li.nav-item
+                    a.nav-link(href="#tab3" id="tab-link" role="tab" data-toggle="tab" aria-controls="tab3" aria-expanded="true") Рекомендуем
 
-section.main_clients
-    .container
-        .h2 Наши клиенты
-        .row.main_clients_list
-            -for(var c=1;c<=10;c++)
-                .col-6.col-sm-4.col-md-3.col-xl-2.item
-                    picture
-                        img(src="img/client.png")
+            .tab-content.product_tabs_content
+                #tab1.tab-pane.fade.show.active(role="tabpanel" aria-labelledby="tab1-link")
+                    .products_list
+                        -for(var p1=1;p1<=4;p1++)
+                            .product_item
+                                .label Новинка!
+                                .img_thumbnail
+                                    a(href="#")
+                                        img(src="img/image5.png")
+                                a.product_item_name(href="#") Название товара #{p1}
+                                .amount_price
+                                    .amount
+                                        span.down -
+                                        input(type="text" value="1")
+                                        span.up +
+                                    .price 1200 РУБ.
+                                .btn_group
+                                    a.btn_default(href="#") Подробнее
+                                    a.btn_small.add_to_compare(href="#")
+                                    a.btn_small.add_to_cart(href="#")
+
+                #tab2.tab-pane.fade(role="tabpanel" aria-labelledby="tab2-link")
+                    .products_list
+                        -for (var p1 = 1; p1 <= 4; p1++)
+                            .product_item
+                                .label Акция!
+                                .img_thumbnail
+                                    a(href="#")
+                                        img(src="img/image5.png")
+                                a.product_item_name(href="#") Название товара #{p1}
+                                .amount_price
+                                    .amount
+                                        span.down -
+                                        input(type="text" value="1")
+                                        span.up +
+                                    .price 1200 РУБ.
+                                .btn_group
+                                    a.btn_default(href="#") Подробнее
+                                    a.btn_small.add_to_compare(href="#")
+                                    a.btn_small.add_to_cart(href="#")
+                #tab3.tab-pane.fade(role="tabpanel" aria-labelledby="tab3-link")
+                    .products_list
+                        -for (var p1 = 1; p1 <= 4; p1++)
+                            .product_item
+                                .label Рекомендуем!
+                                .img_thumbnail
+                                    a(href="#")
+                                        img(src="img/image5.png")
+                                a.product_item_name(href="#") Название товара #{p1}
+                                .amount_price
+                                    .amount
+                                        span.down -
+                                        input(type="text" value="1")
+                                        span.up +
+                                    .price 1200 РУБ.
+                                .btn_group
+                                    a.btn_default(href="#") Подробнее
+                                    a.btn_small.add_to_compare(href="#")
+                                    a.btn_small.add_to_cart(href="#")
+        -var catalog=['Ноутбуки','Моноблоки','Планшеты / Электронные книги','Программные продукты','ПЭВМ – Компьютер в сборе','Серверы','Сканеры','Плоттеры','Принтеры','МФУ','Аксессуары для ноутбуков','Источники Бесперебойного Питания и фильтры','Мониторы/ТВ/Проекторы/Проекционные экраны','Сетевое оборудование','Компьютерные комплектующие','USB и SD накопители/MP3 плееры/Картридеры','Клавиатуры','Мыши/Манипуляторы','Шредер, Ламинатор, Факс, Телефоны','Картриджи/Бумага','Акустика','Наушники/Диктофоны/Микрофоны/Геймпады/Приставки','Фотокамеры/Видеокамеры/Веб-камеры','Батарейки/Аккумуляторы/Зарядные','Смартфоны','Аксессуары для смартфонов','Кабеля/Разное','Калькулятор','Экосистема']
+        .main_catalog
+            .h2 Каталог продукции
+
+            .category_list
+                for c_item, index in catalog
+                    .category_list_item
+                        picture
+                            img(src="img/icons/c_"+index+".svg")
+
+                        div
+                            a.category_title(href="#")=c_item
+                            if index===5 || index===6 || index===7 || index===8 || index===9 || index===10 || index===11
+                                ul.subcategory_list
+                                    -for(var sb=1;sb<=5;sb++)
+                                        li.item
+                                            a(href="#") Подкатегория <span>/<span>
+                            else if index===12
+                                ul.subcategory_list
+                                    -for (var sb = 1; sb <= 10; sb++)
+                                        li.item
+                                            a(href="#") Подкатегория <span>/<span>
+                            else if index===13 || index===14 || index===15 || index===16 || index===17
+                                ul.subcategory_list
+                                    -for (var sb = 1; sb <= 3; sb++)
+                                        li.item
+                                            a(href="#") Подкатегория <span>/<span>
+
+    .main_about
+        .container
+            .row
+                .col-12.col-md-6
+                    img(src="img/Screenshot_1.png")
+                .col-12.col-md-6.d-flex.align-items-center
+                    div
+                        .h1 Информация о нас
+                        .desc
+                            p <strong>Нам 15 лет.</strong> Компания ТехноБай входит в лидеры продаж компьютерной, периферийной  и офисной техники на рынке Республики Беларусь. В число наших партнеров входят мировые лидеры it-индустрии: HP, Lenovo, Samsung,Acer, Dell, Canon, Kyocera, Epson, BenQ, Philips, Toshiba, Logitech, LG, APC, Kaspersky , ASUS, Trancend, Targus.
+
+                        a.btn_default(href="#") Подробнее
+
+
+    .main_contacts
+        .container-fluid
+            .row
+                .col-12.col-md-6
+                    img(src="img/image9.png")
+                .col-12.col-md-6.d-flex.align-items-center
+                    div
+                        .main_contacts_row
+                            .h1 Наши данные
+                            .row
+                                .col-12.col-sm-6.col-md-4
+                                    .title Отдел продаж:
+                                    ul
+                                        li
+                                            a.phone(href="tel:+375 29 649 53 52") +375 29 649 53 52
+                                        li
+                                            a.email(href="mailto:tb@technoby.by") tb@technoby.by
+                                .col-12.col-sm-6.col-md-4
+                                    .title Сервисный отдел:
+                                    ul
+                                        li
+                                            a.phone(href="tel:+375 44  737 82 40") +375 44  737 82 40
+                                        li
+                                            a.email(href="mailto:support2@technoby.com") support2@technoby.com
+                                .col-12.col-sm-6.col-md-4
+                                    .title Бухгалтер:
+                                    ul
+                                        li
+                                            a(href="tel:+375 17  363 82 40") +375 17  363 82 40 <span>(тел./факс)</span>
+
+                                .col-12
+                                    .title Адрес:
+                                    ul
+                                        li.location 220040, город Минск, ул. Корш-Саблина, д. 74, ком. 1
+
 
 
 

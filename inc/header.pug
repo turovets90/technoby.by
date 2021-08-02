@@ -25,7 +25,32 @@ header
 
 
             .col_right
-                ul.user_menu
+                ul.t_menu
+                    li.mm_contacts
+                        button.mm_contacts_btn
+                            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.68917 5.64292C3.70917 7.6475 5.3525 9.28375 7.35708 10.3108L8.91542 8.7525C9.10667 8.56125 9.39 8.4975 9.63792 8.5825C10.4312 8.84458 11.2883 8.98625 12.1667 8.98625C12.5562 8.98625 12.875 9.305 12.875 9.69458V12.1667C12.875 12.5562 12.5562 12.875 12.1667 12.875C5.51542 12.875 0.125 7.48458 0.125 0.833333C0.125 0.44375 0.44375 0.125 0.833333 0.125H3.3125C3.70208 0.125 4.02083 0.44375 4.02083 0.833333C4.02083 1.71875 4.1625 2.56875 4.42458 3.36208C4.5025 3.61 4.44583 3.88625 4.2475 4.08458L2.68917 5.64292Z" fill="black"/>
+                            </svg>
+                        .h_contacts
+                            ul
+                                li
+                                    a.phone(href="tel: +375 29 ХХХ-ХХ-ХХ") +375 29 ХХХ-ХХ-ХХ
+                                li
+                                    a.order_call(href="#order_call" data-toggle="modal") Заказать звонок
+                    li.mm_search
+                        button.mm_search_btn
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="7.5" cy="7.5" r="6.5" stroke="#323232" stroke-width="2"/>
+                            <path d="M17 17L12.5 12.5" stroke="#323232" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        .search
+                            form.search_form
+                                input.form-control(type="text" placeholder="Поиск")
+                                button.search_btn(type="submit")
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7.5" cy="7.5" r="6.5" stroke="white" stroke-width="2"/>
+                                    <path d="M17 17L12.5 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
                     li
                         a(href="#")
                             picture
@@ -72,10 +97,16 @@ header
                                 </svg>
 
                             span.txt Корзина
+                    li.mm_btn
+                        button.hamburger
+                            span
+                            span
+                            span
+
 
 
         .main_menu
-            .close
+            .mm_close
             ul.nav
                 for menu_item, index in main_menu
                     if index===1
@@ -85,7 +116,7 @@ header
                             .sub_menu
                                 ul.row
                                     for s_item, index in sub_menu
-                                        li.col-12.col-sm-6.col-md-4.col-xl-3
+                                        li.col-12.col-md-4.col-xl-3
                                             a(href="#")=s_item
                     else
                         li

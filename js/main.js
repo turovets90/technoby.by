@@ -18,6 +18,57 @@ $(document).ready(function(){
         }, 'xml');
     });
     /* end перевод картинки svg в код */
+
+
+    $('.hamburger').click(function () {
+        $('.main_menu').toggleClass('open');
+        $('html').toggleClass('page-noscroll');
+
+        $('.main_menu .mm_close').click(function () {
+            $('.main_menu').removeClass('open');
+            $('html').removeClass('page-noscroll');
+        });
+        return false;
+    });
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest(".main_menu.open").length) {
+            $(".main_menu.open").removeClass('open');
+            $("html").removeClass('page-noscroll');
+        }
+        e.stopPropagation();
+    });
+
+    $('.main_menu .arrow').click(function(){
+        $(this).next().slideToggle();
+        $(this).toggleClass('act');
+    });
+
+    $(".m_slider").slick({
+        infinite: true,
+        arrows: true,
+        dots: true,
+        //fade: true,
+        //autoplay:  true,
+        //speed: 2000,
+        //autoplaySpeed: 3000,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+
+    $('.amount .down').click(function () {
+        var $input = $(this).parent().find('input');
+        var count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+        $input.change();
+        return false;
+    });
+    $('.amount .up').click(function () {
+        var $input = $(this).parent().find('input');
+        $input.val(parseInt($input.val()) + 1);
+        $input.change();
+        return false;
+    });
 /*
     function format(state) {
         if (!state.id) return state.text; // optgroup
