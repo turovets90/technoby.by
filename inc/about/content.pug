@@ -1,0 +1,67 @@
+.page_content
+    .container
+        ul.breadcrumb
+            li
+                a(href="#") Главная
+            li
+                a(href="#") #{page.title}
+
+        .download_price
+            .text
+                .h3 Скачайте наш прайс!
+                p Чтобы подробнее ознакомиться с продукцией, которую мы предлагаем
+            a.btn_default.download(href="#")
+                span Скачать прайс
+
+
+        .banner(style="background-image:url(img/banner.png)")
+            .banner_content
+                .banner_title <span>Приглашаем к работе</span> <span>дилеров</span>
+
+                ul.adv_list
+                    li Оперативная работа
+                    li Бесплатная доставка по Минску и РБ
+                    li Акции
+
+        .about_desc
+            .h1 <span class="blue">ТЕХНОБАЙ</span> - правильный выбор!
+            p.sub_title.pb-5.mb-4 Весь компьютерный мир у нас на складе по низким ценам. Все А-бренды в наличии, самый большой прайс по А-брендам в РБ.
+
+            .h1.mb-4.pb-2 О нас
+
+            .desc Крупный поставщик компьютерной, периферийной и офисной техники Более 15 лет на рынке. Прямые поставки. Квалифицированные специалисты. В число наших партнеров входят мировые лидеры it-индустрии: HP, Lenovo, Samsung,Acer, Dell, Canon, Kyocera, Epson, BenQ, Philips, Toshiba, Logitech, LG, APC, Kaspersky , ASUS, Trancend, Targus. По всем А-брендам прямая авторизация с вендорами.
+            -var off=['бесплатные консультации и помощь при выборе компьютерного и периферийного оборудования','бесплатная доставка товаров по г. Минску и Республике Беларусь','гибкая система скидок','поможем разработать и оснастить Ваш офис под «ключ»','поставим любое компьютерное, периферийное и офисное оборудование в кратчайшие сроки'];
+            .offer
+                .h2 Мы готовы предложить:
+                .offer_list
+                    for offer_item, index in off
+                        .offer_list_item
+                            picture
+                                img(src="img/icons/off_"+index+".svg")
+                            .text=offer_item
+            -var steps=['Открытие офиса  в г. Минске','Создание собственного парка автомобилей','Заключение соглашений о работе с мировыми компаниями – HP, Microlab, Trancend, Targus','Развитие дилерского  канала продаж в г. Минске','Развитие дилерского канала продаж по Республике Беларусь','Расширение ассортимента продукции и сотрудничество с новыми брендами  - Lenovo, Samsung,Acer, Dell, Canon, Kyocera, Epson, BenQ, Philips, Toshiba, Logitech, LG, APC, Kaspersky','Расширение клиентской базы – работа с корпоративными заказчиками','Введение услуги – «офис под ключ»','Полный цикл автоматизации работы предприятия','Компания  ТехноБай приглашает к взаимовыгодному постоянному сотрудничеству','Желаем Вам удачных  покупок и успешного бизнеса'];
+            .steps
+                .h2 Этапы развития ТехноБай:
+                .steps_list
+                    for step_item, index in steps
+                        .steps_list_item
+                            .text=step_item
+                            span.count #{index+1}
+
+            .vendors
+                .h2 Наши вендоры
+                .logo_list
+                    -for(var v=1;v<=24;v++)
+                        .item
+                            img(src="img/vendor.png")
+            .buyers
+                .h2 Наши покупатели
+                .logo_list
+                    -for (var v = 1; v <= 6; v++)
+                        .item
+                            img(src="img/vendor.png")
+
+
+
+
+

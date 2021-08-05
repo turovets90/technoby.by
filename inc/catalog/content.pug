@@ -1,0 +1,49 @@
+.page_content
+    .container
+        ul.breadcrumb
+            li
+                a(href="#") Главная
+            li
+                a(href="#") #{page.title}
+
+        .download_price
+            .text
+                .h3 Скачайте наш прайс!
+                p Чтобы подробнее ознакомиться с продукцией, которую мы предлагаем
+            a.btn_default.download(href="#")
+                span Скачать прайс
+
+
+
+
+
+        .main_catalog
+            .h2 Каталог продукции
+            .row
+                .col-12.col-xl-3
+
+                .col-12.col-xl-9
+                    -var catalog = ['Ноутбуки', 'Моноблоки', 'Планшеты / Электронные книги', 'Программные продукты', 'ПЭВМ – Компьютер в сборе', 'Серверы', 'Сканеры', 'Плоттеры', 'Принтеры', 'МФУ', 'Аксессуары для ноутбуков', 'Источники Бесперебойного Питания и фильтры', 'Мониторы/ТВ/Проекторы/Проекционные экраны', 'Сетевое оборудование', 'Компьютерные комплектующие', 'USB и SD накопители/MP3 плееры/Картридеры', 'Клавиатуры', 'Мыши/Манипуляторы', 'Шредер, Ламинатор, Факс, Телефоны', 'Картриджи/Бумага', 'Акустика', 'Наушники/Диктофоны/Микрофоны/Геймпады/Приставки', 'Фотокамеры/Видеокамеры/Веб-камеры', 'Батарейки/Аккумуляторы/Зарядные', 'Смартфоны', 'Аксессуары для смартфонов', 'Кабеля/Разное', 'Калькулятор', 'Экосистема']
+                    .category_list
+                        for c_item, index in catalog
+                            .category_list_item
+                                picture
+                                    img(src="img/icons/c_" + index + ".svg")
+
+                                div
+                                    a.category_title(href="#")=c_item
+                                    if index === 5 || index === 6 || index === 7 || index === 8 || index === 9 || index === 10 || index === 11
+                                        ul.subcategory_list
+                                            -for (var sb = 1; sb <= 5; sb++)
+                                                li.item
+                                                    a(href="#") Подкатегория <span>/<span>
+                                    else if index === 12
+                                        ul.subcategory_list
+                                            -for (var sb = 1; sb <= 10; sb++)
+                                                li.item
+                                                    a(href="#") Подкатегория <span>/<span>
+                                    else if index === 13 || index === 14 || index === 15 || index === 16 || index === 17
+                                        ul.subcategory_list
+                                            -for (var sb = 1; sb <= 3; sb++)
+                                                li.item
+                                                    a(href="#") Подкатегория <span>/<span>

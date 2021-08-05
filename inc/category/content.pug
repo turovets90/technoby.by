@@ -1,0 +1,135 @@
+.page_content
+    .container
+        ul.breadcrumb
+            li
+                a(href="#") Главная
+            li
+                a(href="#") #{page.title}
+
+        .download_price
+            .text
+                .h3 Скачайте наш прайс!
+                p Чтобы подробнее ознакомиться с продукцией, которую мы предлагаем
+            a.btn_default.download(href="#")
+                span Скачать прайс
+
+
+
+
+
+        .main_catalog
+            .h2 #{page.title}
+            .row
+                .col-12.col-xl-3
+                    form
+                        .filter
+                            .filter_title ФИЛЬТР
+                            .filter-group
+                                .filter_item
+                                    .filter_item_title Цена
+                                    .filter_item_body
+                                        .range_values
+                                            .tasks_group
+
+                                                input.tasks_status1(type="text" value="0")
+                                                span —
+                                                input.tasks_status2(type="text")
+                                            .range
+                                .filter_item
+                                    .filter_item_title Бренд
+                                    .filter_item_body
+                                        .checkbox_list
+                                            -for(var ch=1;ch<=10;ch++)
+                                                .item
+                                                    .custom_checkbox
+                                                        input(type="checkbox" id="checkbox_"+ch+"")
+                                                        label(for="checkbox_"+ch+"") HP (70)
+
+                                .filter_item
+                                    .filter_item_title Операционная система
+                                    .filter_item_body
+                                        .checkbox_list
+                                            -for (var ch1 = 1; ch1 <= 2; ch1++)
+                                                    .item
+                                                        .custom_checkbox
+                                                            input(type="checkbox" id="checkbox_1"+ch1+"")
+                                                            label(for="checkbox_1"+ch1+"") Android (173)
+
+                                .filter_item
+                                    .filter_item_title Цена
+                                    .filter_item_body
+                                        .range_values
+                                            .tasks_group
+                                                input.tasks_status1(type="text" value="0")
+                                                span —
+                                                input.tasks_status2(type="text")
+                                            .range
+                                .filter_item
+                                    .btn_group
+                                        button.btn_default(type="submit") Показать
+                                        button.btn_default.btn_grey(type="reset") Сбросить
+
+
+
+
+                .col-12.col-xl-9
+                    -var subcat=['Блоки питания','Видеокарты','Оперативная память','Материнские платы','Корпуса','Процессоры','Оптические приводы','Кулеры','Термопаста','Жесткие диски','SSD диски','Внешние HDD и SSD диски'];
+                    .subcat_list
+                        for s_item, index in subcat
+                            .item
+                                a(href="#")
+                                    picture
+                                        img(src="img/subcat_"+index+".png")
+                                    .text=s_item
+
+                    .sort
+                        .custom_select
+                            select
+                                option По цене
+                                option По популярности
+                    .products_list
+                        -for (var p1 = 1; p1 <= 8; p1++)
+                            .product_item
+                                .label Новинка!
+                                .img_thumbnail
+                                    a(href="#")
+                                        img(src="img/image5.png")
+                                a.product_item_name(href="#") Название товара #{p1}
+                                .amount_price
+                                    .amount
+                                        span.down -
+                                        input(type="text" value="1")
+                                        span.up +
+                                    .price 1200 РУБ.
+                                .btn_group
+                                    a.btn_default(href="#") Подробнее
+                                    a.btn_small.add_to_compare(href="#")
+                                    a.btn_small.add_to_cart(href="#")
+
+                    .pagination
+                        ul
+                            li
+                                a.page_prev(href="")
+                            li
+                                a.active(href="") 1
+                            li
+                                a(href="") 2
+                            li
+                                a(href="") 3
+                            li
+                                a(href="") 4
+                            li
+                                a(href="") 5
+                            li
+                                span ...
+                            li
+                                a(href="") 9
+                            li
+                                a.page_next(href="")
+
+
+
+                .col-12.page_text
+                    h2 Блок описание
+                    p Нам 15 лет. Компания ТехноБай входит в лидеры продаж компьютерной, периферийной  и офисной техники на рынке Республики Беларусь. В число наших партнеров входят мировые лидеры it-индустрии: HP, Lenovo, Samsung,Acer, Dell, Canon, Kyocera, Epson, BenQ, Philips, Toshiba, Logitech, LG, APC, Kaspersky , ASUS, Trancend, Targus.
+                    p Нам 15 лет. Компания ТехноБай входит в лидеры продаж компьютерной, периферийной  и офисной техники на рынке Республики Беларусь. В число наших партнеров входят мировые лидеры it-индустрии: HP, Lenovo, Samsung,Acer, Dell, Canon, Kyocera, Epson, BenQ, Philips, Toshiba, Logitech, LG, APC, Kaspersky , ASUS, Trancend, Targus. Нам 15 лет. Компания ТехноБай входит в лидеры продаж компьютерной, периферийной  и офисной техники на рынке Республики Беларусь. В число наших партнеров входят мировые лидеры it-индустрии: HP, Lenovo, Samsung,Acer, Dell, Canon, Kyocera, Epson, BenQ, Philips, Toshiba, Logitech, LG, APC, Kaspersky , ASUS, Trancend, Targus.

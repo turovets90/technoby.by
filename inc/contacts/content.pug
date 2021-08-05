@@ -1,0 +1,71 @@
+.page_content
+    .container
+        ul.breadcrumb
+            li
+                a(href="#") Главная
+            li
+                a(href="#") #{page.title}
+
+        h1 #{page.title}
+        .c_table
+            .item
+                .item_head Отдел продаж:
+                .item_body
+                    ul
+                        li
+                            a.phone(href="tel:+375 29 649 53 52") +375 29 649 53 52
+                        li
+                            a.email(href="mailto:tb@technoby.by") tb@technoby.by
+            .item
+                .item_head Сервисный отдел:
+                .item_body
+                    ul
+                        li
+                            a.phone(href="tel:+375 44  737 82 40") +375 44  737 82 40
+                        li
+                            a.email(href="mailto:support2@technoby.com") support2@technoby.com
+            .item
+                .item_head Бухгалтер:
+                .item_body
+                    ul
+                        li
+                            a(href="tel:+375 17  363 82 40") +375 17  363 82 40 <span>(тел./факс)</span>
+            .item
+                .item_head Адрес:
+                .item_body
+                    ul
+                        li.location 220040, город Минск, ул. Корш-Саблина, д. 74, ком. 1
+
+        .map
+            img(src="img/map.png")
+
+        .feedback_box
+            .row
+                .col-12.col-xl-6.d-none.d-xl-block.p-xl-0
+                    picture
+                        img(src="img/rgdfgd.png")
+                .col-12.col-xl-6.d-flex.align-items-center.p-xl-0
+                    div.feedback_form
+                        form
+                            .h1 Остались вопросы?
+                            .sub_title Получите бесплатную консультацию от наших специалистов!
+                            .row
+                                .col-12.col-md-6
+                                    .field
+                                        input.form-control(type="text")
+                                        label Ваше имя
+                                .col-12.col-md-6
+                                    .field
+                                        input.form-control(type="text")
+                                        label Email или телефон
+                                .col-12
+                                    .field
+                                        textarea.form-control
+                                        label Сообщение
+                                .col-12.col-md-6.field
+                                    button.btn_default(type="submit") Отправить
+                                .col-12.col-md-6
+                                    .custom_checkbox
+                                        input(type="checkbox" id="checkbox_1")
+                                        label(for="checkbox_1") Согласен на обработку персональных данных
+

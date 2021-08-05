@@ -69,6 +69,90 @@ $(document).ready(function(){
         $input.change();
         return false;
     });
+
+
+
+    $('.range_values').each(function(){
+        var range=$(this).find('.range');
+        var tasks_status1=$(this).find('.tasks_status1');
+        var tasks_status2=$(this).find('.tasks_status2');
+        $(range).slider({
+            range: true,
+            min: 0,
+            max: 1000,
+            values: [0, 1000],
+            step: 10,
+            slide: function(event, ui) {
+                $(tasks_status1).val( ui.values[0] );
+                $(tasks_status2).val( ui.values[1] );
+            }
+        });
+    });
+
+    $('.filter_item_title').click(function(){
+        $(this).parent().toggleClass('act');
+    });
+    $('.filter_title').click(function(){
+        $(this).toggleClass('act');
+    });
+
+    $(function () {
+        $('input, textarea').each(function () {
+            $(this).blur(function(){
+                if(!this.value){
+                    $(this).removeClass('hide_label');
+                }
+                else{
+                    $(this).addClass('hide_label');
+                }
+            });
+            if ( !this.value ) {
+                $(this).removeClass('hide_label');
+            }
+            else{
+                $(this).addClass('hide_label');
+            }
+        });
+    });
+
+
+    $('.product_slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        asNavFor: '.product_slider_nav'
+    });
+    $('.product_slider_nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '.product_slider',
+        dots: false,
+        focusOnSelect: true,
+        arrows: true,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4
+                }
+            },
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
+    });
+
+
 /*
     function format(state) {
         if (!state.id) return state.text; // optgroup

@@ -1,0 +1,95 @@
+.page_content
+    .container
+        ul.breadcrumb
+            li
+                a(href="#") Главная
+            li
+                a(href="#") Каталог товаров
+            li
+                a(href="#") Компьютерные комплектующие
+            li
+                a(href="#") #{page.title}
+
+        h1 #{page.title}
+
+        .product_row
+            .row
+                .col-12.col-md-7.position-relative
+                    .label Новинка
+                    .product_slider
+                        -for(var p=1;p<=6;p++)
+                            .product_slider_item
+                                a(href="img/image17.png" data-fancybox="gallery")
+                                    img(src="img/image17.png")
+                    .product_slider_nav
+                        -for (var p = 1; p <= 6; p++)
+                            div
+                                .product_slider_nav_item
+                                    img(src="img/image17.png")
+                .col-12.col-md-5
+                    .product_info
+                        .articul Артикул: 1234567
+                        .price 1 200 РУБ.
+                        .availability
+                            <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 2.5L4.29412 6L9 1" stroke="#52AB4A" stroke-width="1.5"/>
+                            </svg>
+
+                            span в наличии
+
+                        .btn_group
+                            .amount
+                                span.down -
+                                input(type="text" value="1")
+                                span.up +
+                            a.btn_default(href="#") В корзину
+                            a.btn_small.add_to_compare(href="#")
+
+                        -var td1=['Диагональ экрана:','Разрешение экрана:','Процессор:','Оперативная память:','Модель видеокарты:','Операционная система:','Гарантия:'];
+                        -var td2=['15.6','1920х1080','AMD Ryzen 5 3500U','8 ГБ','AMD Radeon Vega 3','DOS','12 мес.'];
+                        ul.parameters
+                            for td_item, index in td1
+                                li
+                                    .td=td_item
+                                    .td=td2[index]
+
+        .product_desc
+            .row
+                .col-12.col-md-7.pr-xl-5
+                    .h2 Описание
+                    -var t1=['Тип/Назначение','Серия процессора','Модель процессора','Количество ядер','Диагональ экрана','Технология экрана','Разрешение экрана','Тип оперативной памяти','Тип накопителя','Ёмкость накопителя','Графический адаптер'];
+                    -var t2=['рабочий (офисный)','Intel Core i5','Intel Core i5 1135G7','4 ядра','15.6 "','TN+Film','1920x1080','DDR4','SSD','512 ГБ','Intel Iris Xe Graphics'];
+                    .custom_table
+                        for t_item,  index in t1
+                            .tr
+                                .td=t_item
+                                .td=t2[index]
+                .col-12.col-md-5.d-flex.justify-content-md-end
+                    .brand_box
+                        .brand_logo
+                            img(src="img/image48.png")
+                        a(href="#") Все товары бренда ASUS
+
+        .related_products
+            .h2 Похожие товары
+            .products_list
+                -for (var p1 = 1; p1 <= 4; p1++)
+                    .product_item
+                        .label Рекомендуем!
+                        .img_thumbnail
+                            a(href="#")
+                                img(src="img/image5.png")
+                        a.product_item_name(href="#") Название товара #{p1}
+                        .amount_price
+                            .amount
+                                span.down -
+                                input(type="text" value="1")
+                                span.up +
+                            .price 1200 РУБ.
+                        .btn_group
+                            a.btn_default(href="#") Подробнее
+                            a.btn_small.add_to_compare(href="#")
+                            a.btn_small.add_to_cart(href="#")
+
+
+
