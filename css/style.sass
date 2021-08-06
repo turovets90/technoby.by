@@ -376,6 +376,13 @@ h2, .h2, h3, .h3
       border-right: 0
       a
         padding-right: 0
+
+    &:hover, &:focus
+      a
+        color: $blue
+      svg
+        *
+          fill: $blue
     &.mm_contacts
       position: relative
       .mm_contacts_btn
@@ -385,7 +392,7 @@ h2, .h2, h3, .h3
         display: none
         position: absolute
         top: 100%
-        right: 0
+        left: 0
         min-width: 200px
         z-index: 3
         background: #fff
@@ -405,10 +412,11 @@ h2, .h2, h3, .h3
       .search
         display: none
         position: absolute
-        right: 0
+        left: 0
         top: 100%
-        min-width: 300px
+        width: 200px
         background: #fff
+        z-index: 9
         +box-shadow(1px 1px 30px rgba(50, 50, 50, 0.1))
         @media (min-width: 992px)
           display: none
@@ -1030,7 +1038,7 @@ main
 .amount
   +flex
   +ai-center
-  width: 144px
+  //width: 144px
   border: 1px solid #EAEAEA
   span
     height: 35px
@@ -1392,6 +1400,7 @@ footer
     margin-bottom: 20px
   @media (max-width: 767px)
     margin-bottom: 10px
+    line-height: 1
   li
     padding: 0 15px
     position: relative
@@ -1414,9 +1423,13 @@ footer
         border-left: 4px solid #717171
         border-top: 4px solid transparent
         border-bottom: 4px solid transparent
+        @media (max-width: 767px)
+          top: 2px
     a
       color: #717171
       font-size: 14px
+      @media (max-width: 767px)
+        font-size: 12px
       &:hover
         color: $blue
 

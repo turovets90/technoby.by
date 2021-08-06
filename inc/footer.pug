@@ -53,3 +53,201 @@ footer
                     .h2 Подпишитесь на наш прайс!
                     p Узнавайте все новости первыми
                     a.btn_default(href="#") Прайс
+
+
+
+.modal.fade#registration(role="dialog" aria-labelledby="modalLabel" aria-hidden="true")
+    .modal-dialog
+        .modal-content
+            .modal-body
+                button.close(data-dismiss="modal" aria-label="Close")
+                .modal_tabs
+                    ul.nav(role="tablist")
+                        li.nav-item
+                            a.nav-link.active(href="#modal_tab1" id="modal_tab1-link" role="tab" data-toggle="tab" aria-controls="modal_tab1" aria-expanded="true") Регистрация
+                        li.nav-item
+                            a.nav-link(href="#modal_tab2" id="modal_tab2-link" role="tab" data-toggle="tab" aria-controls="modal_tab2" aria-expanded="true") Вход
+
+                    .tab-content
+                        #modal_tab1.tab-pane.fade.show.active(role="tabpanel" aria-labelledby="modal_tab1-link")
+                            .modal_form
+                                form
+                                    .row
+                                        .col-12.col-md-6.col-xl-4
+                                            .field
+                                                input.form-control(type="text")
+                                                label Ваше имя
+                                        .col-12.col-md-6.col-xl-4
+                                            .field
+                                                input.form-control(type="text")
+                                                label Телефон<span class="red">*</span>
+                                        .col-12.col-md-6.col-xl-4
+                                            .field
+                                                input.form-control(type="text")
+                                                label E-mail<span class="red">*</span>
+                                        .col-12.col-md-6.col-xl-4
+                                            .field
+                                                input.form-control(type="text")
+                                                label Название организации
+                                        .col-12.col-md-6.col-xl-4
+                                            .field
+                                                input.form-control(type="text")
+                                                label УПН
+                                        .col-12.col-md-6.col-xl-4
+                                            .field
+                                                input.form-control(type="text")
+                                                label Должность
+                                        .col-12
+                                            .field
+                                                input.form-control(type="password")
+                                                label Пароль
+                                        .col-12
+                                            .field
+                                                .custom_checkbox
+                                                    input(type="checkbox" id="checkbox_1" checked)
+                                                    label(for="checkbox_1") Согласен на e-mail рассылку
+                                        .col-12
+                                            .field
+                                                button.btn_default(type="submit") Зарегистрироваться
+
+
+                        #modal_tab2.tab-pane.fade(role="tabpanel" aria-labelledby="modal_tab2-link")
+                            .modal_form
+                                form
+                                    .row
+                                        .col-12.col-md-10
+                                            .field
+                                                input.form-control(type="text")
+                                                label Ваше имя
+                                        .col-12.col-md-10
+                                            .field
+                                                input.form-control(type="password")
+                                                label Пароль
+                                        .col-12.col-md-10
+                                            .field
+                                                .custom_checkbox
+                                                    input(type="checkbox" id="checkbox_2" checked)
+                                                    label(for="checkbox_2") Согласен на e-mail рассылку
+                                        .col-12.col-md-10
+                                            .field
+                                                button.btn_default(type="submit") Войти
+
+
+
+                    .social_networks
+                        span Через соц. сеть:
+                        ul
+                            li
+                                a(href="#")
+                                    img(src="img/vk.svg")
+                            li
+                                a(href="#")
+                                    img(src="img/fb.svg")
+                            li
+                                a(href="#")
+                                    img(src="img/link.svg")
+                            li
+                                a(href="#")
+                                    img(src="img/inst.svg")
+
+
+
+.modal.fade#order_call(role="dialog" aria-labelledby="modalLabel" aria-hidden="true")
+    .modal-dialog
+        .modal-content
+            .modal-body
+                button.close(data-dismiss="modal" aria-label="Close")
+                .h2.modal_title Заказать звонок
+                .sub_title Оставьте свои данные и мы свяжемся с Вами в ближайшее время!
+                .modal_form
+                    form
+                        .row
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Ваше имя
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Телефон<span class="red">*</span>
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label E-mail*
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Название организации
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label УПН
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Должность
+                            .col-12
+                                .field
+                                    textarea.form-control
+                                    label Сообщение
+                            .col-12.col-md-6
+                                .field
+                                    button.btn_default(type="submit") Зарегистрироваться
+                            .col-12.col-md-6
+                                .field
+                                    .custom_checkbox
+                                        input(type="checkbox" id="checkbox_3" checked)
+                                        label(for="checkbox_3") Согласен на обработку персональных данных
+
+
+
+
+
+
+
+
+
+.modal.fade#subscribe(role="dialog" aria-labelledby="modalLabel" aria-hidden="true")
+    .modal-dialog
+        .modal-content
+            .modal-body
+                button.close(data-dismiss="modal" aria-label="Close")
+
+                .h2.modal_title Подписаться на прайс
+                .sub_title Узнавайте все новости первыми
+                .modal_form
+                    form
+                        .row
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Ваше имя
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Телефон<span class="red">*</span>
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label E-mail*
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Название организации
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label УПН
+                            .col-12.col-md-6
+                                .field
+                                    input.form-control(type="text")
+                                    label Должность
+
+                            .col-12.col-md-6
+                                .field
+                                    button.btn_default(type="submit") Зарегистрироваться
+                            .col-12.col-md-6
+                                .field
+                                    .custom_checkbox
+                                        input(type="checkbox" id="checkbox_4" checked)
+                                        label(for="checkbox_4") Согласен на обработку персональных данных

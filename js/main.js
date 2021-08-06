@@ -152,6 +152,14 @@ $(document).ready(function(){
         ]
     });
 
+    $('.mm_contacts_btn, .mm_search_btn').click(function(){
+        $(this).next().slideToggle();
+    });
+
+    //$('.mm_contacts_btn').click(function(){
+      //  $(this).slideToggle();
+    //});
+
 
 /*
     function format(state) {

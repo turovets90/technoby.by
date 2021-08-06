@@ -64,7 +64,7 @@
                     </form>
                   </div>
                 </li>
-                <li><a href="#">
+                <li><a href="#registration" data-toggle="modal">
                     <picture><svg width="21" height="34" viewBox="0 0 21 34" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="10.5" cy="6.5" r="5.7" stroke="#323232" stroke-width="1.6"/>
 <mask id="path-2-inside-1" fill="white">
@@ -518,6 +518,265 @@
           </div>
         </div>
       </footer>
+      <div class="modal fade" id="registration" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button class="close" data-dismiss="modal" aria-label="Close"></button>
+              <div class="modal_tabs">
+                <ul class="nav" role="tablist">
+                  <li class="nav-item"><a class="nav-link active" href="#modal_tab1" id="modal_tab1-link" role="tab" data-toggle="tab" aria-controls="modal_tab1" aria-expanded="true">Регистрация</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#modal_tab2" id="modal_tab2-link" role="tab" data-toggle="tab" aria-controls="modal_tab2" aria-expanded="true">Вход</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="modal_tab1" role="tabpanel" aria-labelledby="modal_tab1-link">
+                    <div class="modal_form">
+                      <form>
+                        <div class="row">
+                          <div class="col-12 col-md-6 col-xl-4">
+                            <div class="field">
+                              <input class="form-control" type="text"/>
+                              <label>Ваше имя</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 col-xl-4">
+                            <div class="field">
+                              <input class="form-control" type="text"/>
+                              <label>Телефон<span class="red">*</span></label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 col-xl-4">
+                            <div class="field">
+                              <input class="form-control" type="text"/>
+                              <label>E-mail<span class="red">*</span></label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 col-xl-4">
+                            <div class="field">
+                              <input class="form-control" type="text"/>
+                              <label>Название организации</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 col-xl-4">
+                            <div class="field">
+                              <input class="form-control" type="text"/>
+                              <label>УПН</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 col-xl-4">
+                            <div class="field">
+                              <input class="form-control" type="text"/>
+                              <label>Должность</label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="field">
+                              <input class="form-control" type="password"/>
+                              <label>Пароль</label>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="field">
+                              <div class="custom_checkbox">
+                                <input type="checkbox" id="checkbox_1" checked="checked"/>
+                                <label for="checkbox_1">Согласен на e-mail рассылку</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="field">
+                              <button class="btn_default" type="submit">Зарегистрироваться</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="modal_tab2" role="tabpanel" aria-labelledby="modal_tab2-link">
+                    <div class="modal_form">
+                      <form>
+                        <div class="row">
+                          <div class="col-12 col-md-10">
+                            <div class="field">
+                              <input class="form-control" type="text"/>
+                              <label>Ваше имя</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-10">
+                            <div class="field">
+                              <input class="form-control" type="password"/>
+                              <label>Пароль</label>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-10">
+                            <div class="field">
+                              <div class="custom_checkbox">
+                                <input type="checkbox" id="checkbox_2" checked="checked"/>
+                                <label for="checkbox_2">Согласен на e-mail рассылку</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-10">
+                            <div class="field">
+                              <button class="btn_default" type="submit">Войти</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="social_networks"><span>Через соц. сеть:</span>
+                  <ul>
+                    <li><a href="#"><img src="img/vk.svg"/></a></li>
+                    <li><a href="#"><img src="img/fb.svg"/></a></li>
+                    <li><a href="#"><img src="img/link.svg"/></a></li>
+                    <li><a href="#"><img src="img/inst.svg"/></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="order_call" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button class="close" data-dismiss="modal" aria-label="Close"></button>
+              <div class="h2 modal_title">Заказать звонок</div>
+              <div class="sub_title">Оставьте свои данные и мы свяжемся с Вами в ближайшее время!</div>
+              <div class="modal_form">
+                <form>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>Ваше имя</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>Телефон<span class="red">*</span></label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>E-mail*</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>Название организации</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>УПН</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>Должность</label>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="field">
+                        <textarea class="form-control"></textarea>
+                        <label>Сообщение</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <button class="btn_default" type="submit">Зарегистрироваться</button>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <div class="custom_checkbox">
+                          <input type="checkbox" id="checkbox_3" checked="checked"/>
+                          <label for="checkbox_3">Согласен на обработку персональных данных</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="subscribe" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button class="close" data-dismiss="modal" aria-label="Close"></button>
+              <div class="h2 modal_title">Подписаться на прайс</div>
+              <div class="sub_title">Узнавайте все новости первыми</div>
+              <div class="modal_form">
+                <form>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>Ваше имя</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>Телефон<span class="red">*</span></label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>E-mail*</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>Название организации</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>УПН</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <input class="form-control" type="text"/>
+                        <label>Должность</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <button class="btn_default" type="submit">Зарегистрироваться</button>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="field">
+                        <div class="custom_checkbox">
+                          <input type="checkbox" id="checkbox_4" checked="checked"/>
+                          <label for="checkbox_4">Согласен на обработку персональных данных</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <script src="js/jquery-3.2.1.min.js"></script>
       <script src="js/jquery-ui.min.js"></script>
       <script src="js/popper.min.js"></script>
